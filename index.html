@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cloth & Co. | Sustainable Fashion</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap");
+
+      :root {
+        --charcoal: #1c1c1c;
+        --ivory: #f7f5f2;
+        --taupe: #b8ada0;
+        --sage: #8fa99b;
+        --white: #ffffff;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: var(--ivory);
+        color: var(--charcoal);
+        overflow-x: hidden;
+      }
+
+      .heading-font {
+        font-family: "Playfair Display", serif;
+      }
+
+      /* Custom animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .fade-in-up {
+        animation: fadeInUp 0.8s ease-out forwards;
+      }
+
+      /* Custom button styling */
+      .btn-primary {
+        background-color: var(--sage);
+        color: var(--white);
+        transition: all 0.3s ease;
+      }
+
+      .btn-primary:hover {
+        background-color: #7a9487;
+        transform: translateY(-2px);
+      }
+
+      /* Custom card styling */
+      .product-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .product-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: var(--ivory);
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: var(--taupe);
+        border-radius: 4px;
+      }
+
+      /* Mobile menu animation */
+      .mobile-menu {
+        transform: translateX(-100%);
+        transition: transform 0.4s ease;
+      }
+
+      .mobile-menu.open {
+        transform: translateX(0);
+      }
+
+      /* Instagram feed hover effect */
+      .instagram-item {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .instagram-item img {
+        transition: transform 0.5s ease;
+      }
+
+      .instagram-item:hover img {
+        transform: scale(1.1);
+      }
+
+      .instagram-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(140, 169, 155, 0.8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .instagram-item:hover .instagram-overlay {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body class="text-gray-800">
+    <!-- Header Section -->
+    <header class="sticky top-0 z-50 bg-white shadow-sm">
+      <div class="container mx-auto px-4 py-3">
+        <div class="flex items-center justify-between">
+          <!-- Logo -->
+          <div class="flex items-center">
+            <a
+              href="#"
+              class="text-2xl heading-font"
+              style="color: var(--charcoal)"
+              >Cloth & Co.</a
+            >
+          </div>
+
+          <!-- Desktop Navigation -->
+          <nav class="hidden md:flex space-x-8">
+            <a href="#" class="hover:underline" style="color: var(--charcoal)"
+              >New Arrivals</a
+            >
+            <a href="#" class="hover:underline" style="color: var(--charcoal)"
+              >Collections</a
+            >
+            <a href="#" class="hover:underline" style="color: var(--charcoal)"
+              >Clothing</a
+            >
+            <a href="#" class="hover:underline" style="color: var(--charcoal)"
+              >Accessories</a
+            >
+            <a href="#" class="hover:underline" style="color: var(--charcoal)"
+              >Our Story</a
+            >
+          </nav>
+
+          <!-- Right side icons -->
+          <div class="flex items-center space-x-6">
+            <!-- Search -->
+            <div class="hidden md:block relative">
+              <input
+                type="text"
+                placeholder="Search..."
+                class="pl-10 pr-4 py-2 border rounded-full focus:outline-none focus:ring-1"
+                style="border-color: var(--taupe)"
+              />
+              <i
+                class="fas fa-search absolute left-3 top-3"
+                style="color: var(--taupe)"
+              ></i>
+            </div>
+
+            <!-- Account -->
+            <a href="#" class="hidden md:block">
+              <i class="fas fa-user text-xl" style="color: var(--charcoal)"></i>
+            </a>
+
+            <!-- Cart -->
+            <a href="#" class="relative">
+              <i
+                class="fas fa-shopping-bag text-xl"
+                style="color: var(--charcoal)"
+              ></i>
+              <span
+                class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center"
+                >3</span
+              >
+            </a>
+
+            <!-- Mobile menu button -->
+            <button id="mobileMenuButton" class="md:hidden">
+              <i class="fas fa-bars text-xl" style="color: var(--charcoal)"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile Search -->
+        <div class="mt-3 md:hidden">
+          <div class="relative">
+            <input
+              type="text"
+              placeholder="Search..."
+              class="w-full pl-10 pr-4 py-2 border rounded-full focus:outline-none focus:ring-1"
+              style="border-color: var(--taupe)"
+            />
+            <i
+              class="fas fa-search absolute left-3 top-3"
+              style="color: var(--taupe)"
+            ></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div
+        id="mobileMenu"
+        class="mobile-menu fixed inset-y-0 left-0 w-64 bg-white shadow-lg z-50 p-6"
+      >
+        <div class="flex justify-between items-center mb-8">
+          <h3 class="text-xl heading-font" style="color: var(--charcoal)">
+            Menu
+          </h3>
+          <button id="closeMobileMenu">
+            <i class="fas fa-times text-xl" style="color: var(--charcoal)"></i>
+          </button>
+        </div>
+
+        <nav class="flex flex-col space-y-6">
+          <a
+            href="#"
+            class="text-lg hover:underline"
+            style="color: var(--charcoal)"
+            >New Arrivals</a
+          >
+          <a
+            href="#"
+            class="text-lg hover:underline"
+            style="color: var(--charcoal)"
+            >Collections</a
+          >
+          <a
+            href="#"
+            class="text-lg hover:underline"
+            style="color: var(--charcoal)"
+            >Clothing</a
+          >
+          <a
+            href="#"
+            class="text-lg hover:underline"
+            style="color: var(--charcoal)"
+            >Accessories</a
+          >
+          <a
+            href="#"
+            class="text-lg hover:underline"
+            style="color: var(--charcoal)"
+            >Our Story</a
+          >
+          <a
+            href="#"
+            class="text-lg hover:underline"
+            style="color: var(--charcoal)"
+            >Account</a
+          >
+          <a
+            href="#"
+            class="text-lg hover:underline"
+            style="color: var(--charcoal)"
+            >Wishlist</a
+          >
+        </nav>
+
+        <div class="mt-12 pt-8 border-t" style="border-color: var(--taupe)">
+          <p class="text-sm mb-4">Follow us</p>
+          <div class="flex space-x-4">
+            <a href="#"
+              ><i
+                class="fab fa-instagram text-xl"
+                style="color: var(--sage)"
+              ></i
+            ></a>
+            <a href="#"
+              ><i class="fab fa-facebook text-xl" style="color: var(--sage)"></i
+            ></a>
+            <a href="#"
+              ><i
+                class="fab fa-pinterest text-xl"
+                style="color: var(--sage)"
+              ></i
+            ></a>
+            <a href="#"
+              ><i class="fab fa-tiktok text-xl" style="color: var(--sage)"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="py-12 md:py-20 px-4 overflow-hidden">
+      <div class="container mx-auto">
+        <div class="flex flex-col lg:flex-row items-center">
+          <div class="lg:w-1/2 mb-12 lg:mb-0 fade-in-up">
+            <h1
+              class="text-4xl md:text-5xl lg:text-6xl heading-font mb-6"
+              style="color: var(--charcoal)"
+            >
+              Autumn Collection 2023
+            </h1>
+            <p class="text-lg md:text-xl mb-8" style="color: var(--charcoal)">
+              Discover sustainable fashion that combines timeless elegance with
+              modern comfort. Crafted with care for you and the planet.
+            </p>
+            <div class="flex space-x-4">
+              <a href="#" class="px-8 py-3 rounded-full btn-primary font-medium"
+                >Shop Collection</a
+              >
+              <a
+                href="#"
+                class="px-8 py-3 rounded-full border font-medium"
+                style="border-color: var(--sage); color: var(--sage)"
+                >Explore Lookbook</a
+              >
+            </div>
+          </div>
+          <div class="lg:w-1/2 relative">
+            <div class="relative z-10">
+              <img
+                src="https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80"
+                alt="Cloth & Co. Autumn Collection"
+                class="rounded-lg shadow-xl w-full h-96 md:h-auto object-cover"
+              />
+            </div>
+            <div
+              class="absolute -bottom-6 -right-6 w-64 h-64 rounded-full opacity-20"
+              style="background-color: var(--sage)"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Collections -->
+    <section class="py-16 px-4" style="background-color: var(--white)">
+      <div class="container mx-auto">
+        <div class="text-center mb-12">
+          <h2
+            class="text-3xl md:text-4xl heading-font mb-4"
+            style="color: var(--charcoal)"
+          >
+            Featured Collections
+          </h2>
+          <p class="text-lg max-w-2xl mx-auto" style="color: var(--charcoal)">
+            Curated selections for every occasion and style preference
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Collection 1 -->
+          <div class="product-card rounded-lg overflow-hidden shadow-lg">
+            <div class="relative h-80 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                alt="Everyday Essentials"
+                class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"
+              ></div>
+              <div class="absolute bottom-6 left-6 text-white">
+                <h3 class="text-2xl heading-font mb-2">Everyday Essentials</h3>
+                <a href="#" class="inline-flex items-center font-medium">
+                  Shop Now <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Collection 2 -->
+          <div class="product-card rounded-lg overflow-hidden shadow-lg">
+            <div class="relative h-80 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1467&q=80"
+                alt="Sustainable Luxe"
+                class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"
+              ></div>
+              <div class="absolute bottom-6 left-6 text-white">
+                <h3 class="text-2xl heading-font mb-2">Sustainable Luxe</h3>
+                <a href="#" class="inline-flex items-center font-medium">
+                  Shop Now <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Collection 3 -->
+          <div class="product-card rounded-lg overflow-hidden shadow-lg">
+            <div class="relative h-80 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1520006403909-838d6b92c22e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                alt="Modern Classics"
+                class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"
+              ></div>
+              <div class="absolute bottom-6 left-6 text-white">
+                <h3 class="text-2xl heading-font mb-2">Modern Classics</h3>
+                <a href="#" class="inline-flex items-center font-medium">
+                  Shop Now <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bestsellers / New Arrivals -->
+    <section class="py-16 px-4">
+      <div class="container mx-auto">
+        <div
+          class="flex flex-col md:flex-row justify-between items-start md:items-center mb-12"
+        >
+          <div>
+            <h2
+              class="text-3xl md:text-4xl heading-font mb-2"
+              style="color: var(--charcoal)"
+            >
+              New Arrivals & Bestsellers
+            </h2>
+            <p class="text-lg" style="color: var(--charcoal)">
+              Discover what's new and trending now
+            </p>
+          </div>
+          <div class="mt-4 md:mt-0">
+            <div class="flex space-x-2">
+              <button
+                class="px-6 py-2 rounded-full font-medium active"
+                style="background-color: var(--sage); color: var(--white)"
+              >
+                New Arrivals
+              </button>
+              <button
+                class="px-6 py-2 rounded-full border font-medium"
+                style="border-color: var(--taupe); color: var(--charcoal)"
+              >
+                Bestsellers
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Product 1 -->
+          <div
+            class="product-card bg-white rounded-lg overflow-hidden shadow-md"
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                alt="Organic Cotton Shirt"
+                class="w-full h-full object-cover"
+              />
+              <div class="absolute top-4 right-4">
+                <span
+                  class="px-3 py-1 rounded-full text-xs font-medium text-white"
+                  style="background-color: var(--sage)"
+                  >New</span
+                >
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-semibold mb-2">Organic Cotton Shirt</h3>
+              <p class="text-sm text-gray-600 mb-4">
+                Soft, breathable fabric with a relaxed fit
+              </p>
+              <div class="flex justify-between items-center">
+                <span class="text-xl font-medium" style="color: var(--charcoal)"
+                  >$78</span
+                >
+                <button
+                  class="px-4 py-2 rounded-full text-sm font-medium btn-primary"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 2 -->
+          <div
+            class="product-card bg-white rounded-lg overflow-hidden shadow-md"
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1582418702059-97ebafb35d09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1415&q=80"
+                alt="Tailored Trousers"
+                class="w-full h-full object-cover"
+              />
+              <div class="absolute top-4 right-4">
+                <span
+                  class="px-3 py-1 rounded-full text-xs font-medium text-white bg-red-500"
+                  >Bestseller</span
+                >
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-semibold mb-2">Tailored Trousers</h3>
+              <p class="text-sm text-gray-600 mb-4">
+                Modern fit with sustainable materials
+              </p>
+              <div class="flex justify-between items-center">
+                <span class="text-xl font-medium" style="color: var(--charcoal)"
+                  >$120</span
+                >
+                <button
+                  class="px-4 py-2 rounded-full text-sm font-medium btn-primary"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 3 -->
+          <div
+            class="product-card bg-white rounded-lg overflow-hidden shadow-md"
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1543087903-1ac2ec7aa8c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1498&q=80"
+                alt="Cashmere Blend Sweater"
+                class="w-full h-full object-cover"
+              />
+              <div class="absolute top-4 right-4">
+                <span
+                  class="px-3 py-1 rounded-full text-xs font-medium text-white"
+                  style="background-color: var(--sage)"
+                  >New</span
+                >
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-semibold mb-2">Cashmere Blend Sweater</h3>
+              <p class="text-sm text-gray-600 mb-4">
+                Luxuriously soft and warm
+              </p>
+              <div class="flex justify-between items-center">
+                <span class="text-xl font-medium" style="color: var(--charcoal)"
+                  >$145</span
+                >
+                <button
+                  class="px-4 py-2 rounded-full text-sm font-medium btn-primary"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 4 -->
+          <div
+            class="product-card bg-white rounded-lg overflow-hidden shadow-md"
+          >
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                alt="Linen Dress"
+                class="w-full h-full object-cover"
+              />
+              <div class="absolute top-4 right-4">
+                <span
+                  class="px-3 py-1 rounded-full text-xs font-medium text-white bg-red-500"
+                  >Bestseller</span
+                >
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-semibold mb-2">Linen Dress</h3>
+              <p class="text-sm text-gray-600 mb-4">
+                Perfect for warm days and summer evenings
+              </p>
+              <div class="flex justify-between items-center">
+                <span class="text-xl font-medium" style="color: var(--charcoal)"
+                  >$98</span
+                >
+                <button
+                  class="px-4 py-2 rounded-full text-sm font-medium btn-primary"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Brand Story Teaser -->
+    <section class="py-16 px-4" style="background-color: var(--white)">
+      <div class="container mx-auto">
+        <div class="flex flex-col lg:flex-row items-center">
+          <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
+            <h2
+              class="text-3xl md:text-4xl heading-font mb-6"
+              style="color: var(--charcoal)"
+            >
+              Our Story: Crafting Sustainable Fashion
+            </h2>
+            <p class="text-lg mb-6" style="color: var(--charcoal)">
+              Cloth & Co. was founded in 2015 with a simple mission: to create
+              beautiful, timeless clothing that respects both people and the
+              planet.
+            </p>
+            <p class="text-lg mb-8" style="color: var(--charcoal)">
+              Every piece in our collection is thoughtfully designed and
+              ethically produced using sustainable materials like organic
+              cotton, recycled polyester, and Tencel™. We partner with artisan
+              communities to preserve traditional craftsmanship while ensuring
+              fair wages and safe working conditions.
+            </p>
+            <a
+              href="#"
+              class="inline-flex items-center font-medium text-lg"
+              style="color: var(--sage)"
+            >
+              Read Our Full Story <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+          <div class="lg:w-1/2">
+            <div class="grid grid-cols-2 gap-4">
+              <div class="rounded-lg overflow-hidden shadow-lg">
+                <img
+                  src="https://images.unsplash.com/photo-1582790695683-c2d58d9e4c12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                  alt="Sustainable materials"
+                  class="w-full h-64 object-cover"
+                />
+              </div>
+              <div class="rounded-lg overflow-hidden shadow-lg mt-8">
+                <img
+                  src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                  alt="Ethical production"
+                  class="w-full h-64 object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="py-16 px-4">
+      <div class="container mx-auto">
+        <div class="text-center mb-12">
+          <h2
+            class="text-3xl md:text-4xl heading-font mb-4"
+            style="color: var(--charcoal)"
+          >
+            As Seen In & Customer Reviews
+          </h2>
+          <p class="text-lg max-w-2xl mx-auto" style="color: var(--charcoal)">
+            Trusted by fashion editors and loved by customers worldwide
+          </p>
+        </div>
+
+        <!-- Press Logos -->
+        <div class="flex flex-wrap justify-center items-center gap-8 mb-12">
+          <div class="text-2xl font-bold italic opacity-70">VOGUE</div>
+          <div class="text-2xl font-bold opacity-70">ELLE</div>
+          <div class="text-2xl font-bold opacity-70">Harper's Bazaar</div>
+          <div class="text-2xl font-bold opacity-70">Sustainable Style</div>
+        </div>
+
+        <!-- Reviews -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div class="bg-white p-8 rounded-lg shadow-md">
+            <div class="flex items-center mb-4">
+              <div class="text-yellow-400">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <span class="ml-2 font-medium">5.0</span>
+            </div>
+            <p class="text-lg mb-6 italic">
+              "The quality is exceptional. I've had my Cloth & Co. linen dress
+              for two seasons now and it still looks brand new."
+            </p>
+            <div class="flex items-center">
+              <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                <img
+                  src="https://randomuser.me/api/portraits/women/32.jpg"
+                  alt="Sarah M."
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <div>
+                <h4 class="font-semibold">Sarah M.</h4>
+                <p class="text-sm text-gray-600">Verified Customer</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white p-8 rounded-lg shadow-md">
+            <div class="flex items-center mb-4">
+              <div class="text-yellow-400">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <span class="ml-2 font-medium">5.0</span>
+            </div>
+            <p class="text-lg mb-6 italic">
+              "Finally, sustainable fashion that doesn't compromise on style.
+              The fit is perfect and the fabrics feel amazing."
+            </p>
+            <div class="flex items-center">
+              <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                <img
+                  src="https://randomuser.me/api/portraits/women/65.jpg"
+                  alt="Jessica T."
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <div>
+                <h4 class="font-semibold">Jessica T.</h4>
+                <p class="text-sm text-gray-600">Verified Customer</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white p-8 rounded-lg shadow-md">
+            <div class="flex items-center mb-4">
+              <div class="text-yellow-400">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="ml-2 font-medium">4.5</span>
+            </div>
+            <p class="text-lg mb-6 italic">
+              "Their commitment to ethical production is what drew me in, but
+              the timeless designs are what keep me coming back."
+            </p>
+            <div class="flex items-center">
+              <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                <img
+                  src="https://randomuser.me/api/portraits/men/32.jpg"
+                  alt="David R."
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <div>
+                <h4 class="font-semibold">David R.</h4>
+                <p class="text-sm text-gray-600">Verified Customer</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Instagram Feed -->
+        <div class="text-center mb-8">
+          <h3 class="text-2xl heading-font mb-4" style="color: var(--charcoal)">
+            Follow Us on Instagram
+          </h3>
+          <p class="text-lg mb-6" style="color: var(--charcoal)">
+            @clothandco #clothandcostyle
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div class="instagram-item rounded-lg overflow-hidden shadow-md">
+            <img
+              src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1376&q=80"
+              alt="Instagram post"
+              class="w-full h-64 object-cover"
+            />
+            <div class="instagram-overlay">
+              <i class="fab fa-instagram text-white text-3xl"></i>
+            </div>
+          </div>
+
+          <div class="instagram-item rounded-lg overflow-hidden shadow-md">
+            <img
+              src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+              alt="Instagram post"
+              class="w-full h-64 object-cover"
+            />
+            <div class="instagram-overlay">
+              <i class="fab fa-instagram text-white text-3xl"></i>
+            </div>
+          </div>
+
+          <div class="instagram-item rounded-lg overflow-hidden shadow-md">
+            <img
+              src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+              alt="Instagram post"
+              class="w-full h-64 object-cover"
+            />
+            <div class="instagram-overlay">
+              <i class="fab fa-instagram text-white text-3xl"></i>
+            </div>
+          </div>
+
+          <div class="instagram-item rounded-lg overflow-hidden shadow-md">
+            <img
+              src="https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1462&q=80"
+              alt="Instagram post"
+              class="w-full h-64 object-cover"
+            />
+            <div class="instagram-overlay">
+              <i class="fab fa-instagram text-white text-3xl"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter Signup -->
+    <section class="py-16 px-4" style="background-color: var(--sage)">
+      <div class="container mx-auto max-w-4xl">
+        <div class="text-center text-white">
+          <h2 class="text-3xl md:text-4xl heading-font mb-4">
+            Join Our Community
+          </h2>
+          <p class="text-lg mb-8 max-w-2xl mx-auto">
+            Subscribe to our newsletter for exclusive offers, sustainable
+            fashion tips, and early access to new collections.
+          </p>
+
+          <form
+            id="newsletterForm"
+            class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto"
+          >
+            <input
+              type="email"
+              placeholder="Your email address"
+              class="flex-grow px-6 py-3 rounded-full focus:outline-none focus:ring-2 focus:ring-white text-gray-800"
+              required
+            />
+            <button
+              type="submit"
+              class="px-8 py-3 rounded-full font-medium"
+              style="background-color: var(--charcoal); color: var(--white)"
+            >
+              Subscribe
+            </button>
+          </form>
+
+          <p class="text-sm mt-4 opacity-90">
+            By subscribing, you agree to our Privacy Policy. You can unsubscribe
+            at any time.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+      class="py-12 px-4"
+      style="background-color: var(--charcoal); color: var(--white)"
+    >
+      <div class="container mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          <!-- Column 1: Logo and description -->
+          <div>
+            <h3 class="text-2xl heading-font mb-4">Cloth & Co.</h3>
+            <p class="mb-6">
+              Sustainable fashion that doesn't compromise on style, quality, or
+              ethics.
+            </p>
+            <div class="flex space-x-4">
+              <a href="#"><i class="fab fa-instagram text-xl"></i></a>
+              <a href="#"><i class="fab fa-facebook text-xl"></i></a>
+              <a href="#"><i class="fab fa-pinterest text-xl"></i></a>
+              <a href="#"><i class="fab fa-tiktok text-xl"></i></a>
+            </div>
+          </div>
+
+          <!-- Column 2: Quick Links -->
+          <div>
+            <h4 class="text-lg font-semibold mb-6">Quick Links</h4>
+            <ul class="space-y-3">
+              <li><a href="#" class="hover:underline">Shop All</a></li>
+              <li><a href="#" class="hover:underline">New Arrivals</a></li>
+              <li><a href="#" class="hover:underline">Bestsellers</a></li>
+              <li><a href="#" class="hover:underline">Sale</a></li>
+              <li><a href="#" class="hover:underline">Gift Cards</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3: Support -->
+          <div>
+            <h4 class="text-lg font-semibold mb-6">Support</h4>
+            <ul class="space-y-3">
+              <li><a href="#" class="hover:underline">Contact Us</a></li>
+              <li><a href="#" class="hover:underline">FAQs</a></li>
+              <li>
+                <a href="#" class="hover:underline">Shipping & Returns</a>
+              </li>
+              <li><a href="#" class="hover:underline">Size Guide</a></li>
+              <li><a href="#" class="hover:underline">Privacy Policy</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 4: Contact -->
+          <div>
+            <h4 class="text-lg font-semibold mb-6">Contact</h4>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <i class="fas fa-map-marker-alt mr-3 mt-1"></i>
+                <span>123 Fashion Ave, Suite 100<br />New York, NY 10001</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-phone mr-3"></i>
+                <span>(555) 123-4567</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-envelope mr-3"></i>
+                <span>hello@clothandco.com</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="pt-8 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center"
+        >
+          <p class="mb-4 md:mb-0">
+            &copy; 2023 Cloth & Co. All rights reserved.
+          </p>
+          <div class="flex space-x-6">
+            <i class="fab fa-cc-visa text-2xl"></i>
+            <i class="fab fa-cc-mastercard text-2xl"></i>
+            <i class="fab fa-cc-amex text-2xl"></i>
+            <i class="fab fa-cc-paypal text-2xl"></i>
+            <i class="fab fa-cc-apple-pay text-2xl"></i>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu functionality
+      const mobileMenuButton = document.getElementById("mobileMenuButton");
+      const closeMobileMenu = document.getElementById("closeMobileMenu");
+      const mobileMenu = document.getElementById("mobileMenu");
+
+      mobileMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.add("open");
+      });
+
+      closeMobileMenu.addEventListener("click", () => {
+        mobileMenu.classList.remove("open");
+      });
+
+      // Close mobile menu when clicking outside
+      document.addEventListener("click", (event) => {
+        if (
+          !mobileMenu.contains(event.target) &&
+          !mobileMenuButton.contains(event.target)
+        ) {
+          mobileMenu.classList.remove("open");
+        }
+      });
+
+      // Newsletter form submission
+      const newsletterForm = document.getElementById("newsletterForm");
+      newsletterForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const email = newsletterForm.querySelector('input[type="email"]').value;
+
+        // In a real implementation, you would send this to a server
+        alert(
+          `Thank you for subscribing with ${email}! You'll receive our next newsletter.`
+        );
+        newsletterForm.reset();
+      });
+
+      // Product card interaction
+      const productCards = document.querySelectorAll(".product-card");
+      productCards.forEach((card) => {
+        card.addEventListener("mouseenter", () => {
+          card.style.transform = "translateY(-10px)";
+        });
+
+        card.addEventListener("mouseleave", () => {
+          card.style.transform = "translateY(0)";
+        });
+      });
+
+      // Tab switching for New Arrivals/Bestsellers
+      const tabButtons = document.querySelectorAll(
+        'button[class*="px-6 py-2 rounded-full"]'
+      );
+      tabButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          // Remove active class from all buttons
+          tabButtons.forEach((btn) => {
+            btn.classList.remove("active");
+            btn.style.backgroundColor = "";
+            btn.style.color = "";
+          });
+
+          // Add active class to clicked button
+          button.classList.add("active");
+          button.style.backgroundColor = "var(--sage)";
+          button.style.color = "var(--white)";
+
+          // In a real implementation, you would switch the product display here
+        });
+      });
+
+      // Add animation on scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("fade-in-up");
+          }
+        });
+      }, observerOptions);
+
+      // Observe elements for animation
+      document.querySelectorAll("section").forEach((section, index) => {
+        if (index > 0) {
+          // Skip first section (header)
+          observer.observe(section);
+        }
+      });
+    </script>
+  </body>
+</html>
