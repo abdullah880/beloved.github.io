@@ -1,534 +1,816 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Heart's Letter to You</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'rose-light': '#fdf2f8',
-                        'rose-medium': '#fce7f3',
-                        'rose-dark': '#fbcfe8',
-                        'paper-cream': '#fefaf0',
-                        'ink-soft': '#7c3aed',
-                        'gold-accent': '#d4af37',
-                    },
-                    fontFamily: {
-                        'handwriting': ['Dancing Script', 'cursive'],
-                        'serif': ['Cormorant Garamond', 'serif'],
-                    },
-                    animation: {
-                        'heartbeat': 'heartbeat 1.5s ease-in-out infinite',
-                        'float': 'float 6s ease-in-out infinite',
-                        'fade-in': 'fadeIn 1.5s ease-in-out',
-                        'fade-in-up': 'fadeInUp 1.2s ease-out',
-                        'pulse-gentle': 'pulseGentle 3s ease-in-out infinite',
-                    },
-                    keyframes: {
-                        heartbeat: {
-                            '0%': { transform: 'scale(1)' },
-                            '5%': { transform: 'scale(1.1)' },
-                            '10%': { transform: 'scale(1)' },
-                            '15%': { transform: 'scale(1.1)' },
-                            '20%': { transform: 'scale(1)' },
-                            '100%': { transform: 'scale(1)' },
-                        },
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
-                            '50%': { transform: 'translateY(-20px) rotate(1deg)' },
-                        },
-                        fadeIn: {
-                            '0%': { opacity: '0' },
-                            '100%': { opacity: '1' },
-                        },
-                        fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(30px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        },
-                        pulseGentle: {
-                            '0%, 100%': { opacity: '1' },
-                            '50%': { opacity: '0.7' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        body {
-            background: linear-gradient(135deg, #fdf2f8 0%, #fefaf0 100%);
-            overflow-x: hidden;
+      /* Custom styles for romantic elements */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Playfair Display", serif;
+        background-color: #fef6f7;
+        color: #5a3d3d;
+        overflow-x: hidden;
+        cursor: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16 3C8.831 3 3 8.831 3 16C3 23.169 8.831 29 16 29C23.169 29 29 23.169 29 16C29 8.831 23.169 3 16 3ZM16 5C22.065 5 27 9.935 27 16C27 22.065 22.065 27 16 27C9.935 27 5 22.065 5 16C5 9.935 9.935 5 16 5Z' fill='%23e11d48'/%3E%3Cpath d='M16 8C11.589 8 8 11.589 8 16C8 20.411 11.589 24 16 24C20.411 24 24 20.411 24 16C24 11.589 20.411 8 16 8ZM16 10C19.309 10 22 12.691 22 16C22 19.309 19.309 22 16 22C12.691 22 10 19.309 10 16C10 12.691 12.691 10 16 10Z' fill='%23e11d48'/%3E%3Ccircle cx='16' cy='16' r='3' fill='%23e11d48'/%3E%3C/svg%3E")
+            16 16,
+          auto;
+      }
+
+      .handwritten {
+        font-family: "Dancing Script", cursive;
+      }
+
+      .paper-texture {
+        background-image: url('data:image/svg+xml,%3Csvg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z" fill="%23f5e6e8" fill-opacity="0.4" fill-rule="evenodd"/%3E%3C/svg%3E');
+      }
+
+      .heartbeat {
+        animation: heartbeat 1.5s ease-in-out infinite both;
+      }
+
+      @keyframes heartbeat {
+        0% {
+          transform: scale(1);
         }
-        .paper-texture {
-            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23fbcfe8' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+        5% {
+          transform: scale(1.1);
         }
-        .page-curl {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(225deg, #fefaf0 45%, #e5e7eb 50%);
-            box-shadow: -2px 2px 3px rgba(0,0,0,0.1);
+        10% {
+          transform: scale(1);
         }
-        .heart-trail {
-            position: fixed;
-            pointer-events: none;
-            z-index: 1000;
-            font-size: 1.2rem;
-            opacity: 0;
+        15% {
+          transform: scale(1.1);
         }
-        .seal {
-            background: radial-gradient(circle at 30% 30%, #d4af37, #b8860b);
-            box-shadow: 0 4px 12px rgba(180, 140, 40, 0.3);
+        20% {
+          transform: scale(1);
         }
-        .envelope-flap {
-            clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
+        100% {
+          transform: scale(1);
         }
-        .letter-fold {
-            transform-origin: top center;
-            animation: foldUnfold 2s ease-in-out;
+      }
+
+      .fade-in {
+        animation: fadeIn 2s ease-out forwards;
+        opacity: 0;
+      }
+
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
         }
-        @keyframes foldUnfold {
-            0% { transform: rotateX(90deg); opacity: 0; }
-            100% { transform: rotateX(0); opacity: 1; }
+      }
+
+      .float {
+        animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
         }
-        .scroll-hint {
-            animation: bounce 2s infinite;
+        50% {
+          transform: translateY(-20px);
         }
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
+        100% {
+          transform: translateY(0px);
         }
-        .ink-blot {
-            filter: blur(1px);
-            opacity: 0.1;
+      }
+
+      .letter-fold {
+        transform-origin: top center;
+        animation: unfold 3s ease-out forwards;
+      }
+
+      @keyframes unfold {
+        0% {
+          transform: rotateX(90deg);
+          opacity: 0;
         }
-        .section-divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #fbcfe8, transparent);
+        100% {
+          transform: rotateX(0deg);
+          opacity: 1;
         }
+      }
+
+      .love-line {
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #e11d48, transparent);
+        margin: 20px auto;
+        width: 80%;
+      }
+
+      .romantic-card {
+        box-shadow: 0 10px 30px rgba(225, 29, 72, 0.1);
+        transition: transform 0.5s ease;
+      }
+
+      .romantic-card:hover {
+        transform: translateY(-10px);
+      }
+
+      .envelope {
+        position: relative;
+        width: 300px;
+        height: 200px;
+        background: #fce7e9;
+        border-radius: 10px;
+        margin: 0 auto;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        overflow: hidden;
+      }
+
+      .envelope:before,
+      .envelope:after {
+        content: "";
+        position: absolute;
+        background: #fce7e9;
+        width: 212px;
+        height: 212px;
+        transform: rotate(45deg);
+        z-index: 1;
+      }
+
+      .envelope:before {
+        top: -106px;
+        left: 44px;
+      }
+
+      .envelope:after {
+        top: 94px;
+        left: 44px;
+      }
+
+      .envelope-content {
+        position: absolute;
+        background: #fffaf0;
+        width: 280px;
+        height: 180px;
+        top: 10px;
+        left: 10px;
+        z-index: 2;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 20px;
+        transition: transform 1.5s ease;
+      }
+
+      .envelope.open .envelope-content {
+        transform: translateY(-180px);
+      }
+
+      .seal {
+        width: 60px;
+        height: 60px;
+        background: #e11d48;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 24px;
+        position: absolute;
+        bottom: -30px;
+        z-index: 3;
+        box-shadow: 0 5px 10px rgba(225, 29, 72, 0.3);
+        transition: transform 0.5s ease;
+      }
+
+      .envelope.open .seal {
+        transform: scale(0);
+      }
+
+      .page-turn {
+        animation: pageTurn 2s ease-out;
+      }
+
+      @keyframes pageTurn {
+        0% {
+          transform: perspective(1000px) rotateY(90deg);
+          opacity: 0;
+        }
+        100% {
+          transform: perspective(1000px) rotateY(0deg);
+          opacity: 1;
+        }
+      }
+
+      .rose-petal {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: linear-gradient(135deg, #e11d48, #fda4af);
+        border-radius: 50% 0 50% 50%;
+        opacity: 0.7;
+        z-index: -1;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .envelope {
+          width: 250px;
+          height: 170px;
+        }
+
+        .envelope-content {
+          width: 230px;
+          height: 150px;
+        }
+
+        .handwritten {
+          font-size: 1.8rem;
+        }
+
+        h1 {
+          font-size: 2.2rem;
+        }
+
+        .text-4xl {
+          font-size: 1.875rem;
+        }
+
+        .text-3xl {
+          font-size: 1.5rem;
+        }
+      }
     </style>
-</head>
-<body class="font-serif text-ink-soft">
-    <!-- Heart trail effect -->
-    <div id="heart-trail-container"></div>
+  </head>
+  <body class="paper-texture">
+    <!-- Background floating elements (hearts and petals) -->
+    <div id="floating-elements"></div>
 
-    <!-- Envelope Opening Intro -->
-    <section id="envelope" class="min-h-screen flex items-center justify-center relative overflow-hidden p-4">
-        <div class="absolute inset-0 paper-texture"></div>
-        
-        <!-- Floating decorative elements -->
-        <div class="absolute top-10 left-10 text-rose-dark opacity-30 animate-float">
-            <i class="fas fa-heart text-4xl"></i>
+    <!-- Main content -->
+    <main class="min-h-screen overflow-hidden">
+      <!-- Opening section with envelope -->
+      <section
+        class="min-h-screen flex flex-col justify-center items-center px-4 pt-16"
+      >
+        <div class="text-center mb-12 fade-in" style="animation-delay: 0.5s">
+          <h1 class="handwritten text-5xl md:text-6xl text-rose-600 mb-4">
+            My Dearest Love
+          </h1>
+          <p class="text-xl text-rose-500 italic">
+            A letter from my heart to yours
+          </p>
         </div>
-        <div class="absolute bottom-20 right-10 text-rose-dark opacity-30 animate-float" style="animation-delay: 1s;">
-            <i class="fas fa-feather-alt text-3xl"></i>
-        </div>
-        <div class="absolute top-1/3 right-1/4 text-rose-dark opacity-30 animate-float" style="animation-delay: 2s;">
-            <i class="fas fa-star text-2xl"></i>
-        </div>
-        
-        <!-- Envelope -->
-        <div class="relative z-10 w-full max-w-2xl">
-            <div class="bg-paper-cream rounded-lg shadow-xl p-8 md:p-12 letter-fold relative border border-rose-dark/20">
-                <!-- Page curl effect -->
-                <div class="page-curl rounded-bl-lg"></div>
-                
-                <!-- Seal -->
-                <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 seal w-16 h-16 rounded-full flex items-center justify-center shadow-lg">
-                    <i class="fas fa-heart text-white text-xl"></i>
-                </div>
-                
-                <!-- Letter content -->
-                <div class="text-center mb-8 animate-fade-in">
-                    <h1 class="font-handwriting text-5xl md:text-6xl text-ink-soft mb-4">My Dearest Love,</h1>
-                    <div class="section-divider my-8"></div>
-                    <p class="text-xl md:text-2xl italic text-rose-dark mb-6">
-                        This letter holds the words my heart has whispered since the day we met.
-                    </p>
-                    <p class="text-lg">
-                        Scroll gently, as you would turn the pages of our story...
-                    </p>
-                </div>
-                
-                <!-- Scroll hint -->
-                <div class="flex justify-center mt-12 scroll-hint">
-                    <div class="text-center">
-                        <p class="text-rose-dark mb-2">Begin our story</p>
-                        <i class="fas fa-chevron-down text-gold-accent text-xl"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Chapter 1: First Meeting -->
-    <section class="min-h-screen py-20 px-4 flex items-center relative overflow-hidden">
-        <div class="absolute inset-0 paper-texture"></div>
-        
-        <!-- Ink blot decoration -->
-        <div class="absolute top-10 right-10 w-40 h-40 bg-ink-soft rounded-full ink-blot opacity-20"></div>
-        <div class="absolute bottom-10 left-10 w-32 h-32 bg-rose-dark rounded-full ink-blot opacity-20"></div>
-        
-        <div class="container mx-auto max-w-4xl relative z-10">
-            <div class="bg-white/80 backdrop-blur-sm rounded-xl shadow-lg p-8 md:p-12 border border-rose-dark/10 animate-fade-in-up">
-                <div class="flex items-center mb-10">
-                    <div class="w-12 h-12 rounded-full bg-rose-light flex items-center justify-center mr-4">
-                        <span class="font-handwriting text-2xl text-ink-soft">1</span>
-                    </div>
-                    <h2 class="font-handwriting text-4xl md:text-5xl text-ink-soft">The Day Our Worlds Collided</h2>
-                </div>
-                
-                <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <div class="relative">
-                        <div class="absolute -inset-4 bg-rose-light rounded-lg transform -rotate-3"></div>
-                        <div class="relative bg-white p-6 rounded-lg shadow-md border border-rose-dark/10">
-                            <p class="text-lg mb-4">
-                                I remember the exact moment—the way the light caught your eyes, 
-                                how time seemed to pause just for us. It wasn't just a meeting; 
-                                it was the universe aligning two souls meant to find each other.
-                            </p>
-                            <p class="text-lg">
-                                Your smile was a language I instantly understood, a story I wanted 
-                                to read for the rest of my life. In that crowded room, you were 
-                                the only person I saw, the only sound I heard.
-                            </p>
-                            <div class="mt-6 pt-6 border-t border-rose-light">
-                                <p class="font-handwriting text-2xl text-rose-dark text-right">
-                                    ~ The beginning of everything
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="text-center">
-                        <div class="inline-block p-4 bg-rose-light rounded-full animate-pulse-gentle">
-                            <i class="fas fa-heart text-rose-dark text-6xl md:text-8xl animate-heartbeat"></i>
-                        </div>
-                        <p class="mt-6 text-rose-dark italic">
-                            "A single glance was all it took—my heart recognized its home."
-                        </p>
-                    </div>
-                </div>
-            </div>
+        <div
+          class="envelope mb-12 letter-fold"
+          id="envelope"
+          style="animation-delay: 1s"
+        >
+          <div class="envelope-content">
+            <h2 class="handwritten text-3xl text-rose-700 mb-2">
+              To My Beloved
+            </h2>
+            <p class="text-center text-gray-700 italic">
+              Click to open this letter of love
+            </p>
+            <i class="fas fa-heart text-rose-500 text-4xl mt-4 heartbeat"></i>
+          </div>
+          <div class="seal">
+            <i class="fas fa-heart"></i>
+          </div>
         </div>
-    </section>
 
-    <!-- Chapter 2: Falling in Love -->
-    <section class="min-h-screen py-20 px-4 flex items-center relative overflow-hidden bg-rose-light/30">
-        <div class="absolute inset-0 paper-texture opacity-50"></div>
-        
-        <!-- Floating hearts -->
-        <div class="absolute top-1/4 left-1/4 animate-float">
-            <i class="fas fa-heart text-rose-dark/30 text-3xl"></i>
+        <div
+          class="text-center text-gray-600 fade-in"
+          style="animation-delay: 2s"
+        >
+          <p class="mb-2">Scroll gently, like turning the pages of our story</p>
+          <i
+            class="fas fa-chevron-down text-rose-400 text-xl animate-bounce"
+          ></i>
         </div>
-        <div class="absolute bottom-1/3 right-1/4 animate-float" style="animation-delay: 1.5s;">
-            <i class="fas fa-heart text-rose-dark/30 text-4xl"></i>
-        </div>
-        
-        <div class="container mx-auto max-w-4xl relative z-10">
-            <div class="bg-paper-cream/90 backdrop-blur-sm rounded-xl shadow-lg p-8 md:p-12 border border-rose-dark/10 animate-fade-in-up">
-                <div class="flex items-center mb-10">
-                    <div class="w-12 h-12 rounded-full bg-rose-light flex items-center justify-center mr-4">
-                        <span class="font-handwriting text-2xl text-ink-soft">2</span>
-                    </div>
-                    <h2 class="font-handwriting text-4xl md:text-5xl text-ink-soft">Falling, Slowly Then All at Once</h2>
-                </div>
-                
-                <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <div class="text-center order-2 md:order-1">
-                        <div class="inline-flex flex-col items-center">
-                            <div class="relative">
-                                <div class="w-48 h-48 rounded-full bg-gradient-to-br from-rose-light to-rose-dark flex items-center justify-center shadow-lg">
-                                    <i class="fas fa-kiss-wink-heart text-white text-6xl"></i>
-                                </div>
-                                <div class="absolute -bottom-4 -right-4 w-24 h-24 rounded-full bg-gold-accent/20 flex items-center justify-center">
-                                    <i class="fas fa-star text-gold-accent text-2xl"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="order-1 md:order-2">
-                        <p class="text-xl mb-6 leading-relaxed">
-                            With every conversation, every shared laugh, every quiet moment side by side— 
-                            I fell deeper. It wasn't a choice; it was gravity. Your soul pulled mine with 
-                            a force I couldn't resist, and I didn't want to.
-                        </p>
-                        <p class="text-xl mb-6 leading-relaxed">
-                            I discovered love in the way you make coffee in the morning, 
-                            in the sound of your voice when you're sleepy, in the space between 
-                            our hands when they almost touch.
-                        </p>
-                        <div class="bg-rose-light/50 p-6 rounded-lg border-l-4 border-rose-dark mt-8">
-                            <p class="font-handwriting text-2xl text-ink-soft italic">
-                                "You are my favorite place to go when my mind wanders."
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+      </section>
 
-    <!-- Chapter 3: The Depth of Devotion -->
-    <section class="min-h-screen py-20 px-4 flex items-center relative overflow-hidden">
-        <div class="absolute inset-0 paper-texture"></div>
-        
-        <!-- Vintage floral decoration -->
-        <div class="absolute top-0 left-0 w-64 h-64 opacity-10 transform -translate-x-1/2 -translate-y-1/2">
-            <i class="fas fa-feather-alt text-rose-dark text-9xl"></i>
-        </div>
-        
-        <div class="container mx-auto max-w-4xl relative z-10">
-            <div class="bg-white/80 backdrop-blur-sm rounded-xl shadow-lg p-8 md:p-12 border border-rose-dark/10 animate-fade-in-up">
-                <div class="flex items-center mb-10">
-                    <div class="w-12 h-12 rounded-full bg-rose-light flex items-center justify-center mr-4">
-                        <span class="font-handwriting text-2xl text-ink-soft">3</span>
-                    </div>
-                    <h2 class="font-handwriting text-4xl md:text-5xl text-ink-soft">The Unspoken Language of Us</h2>
-                </div>
-                
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="text-center p-6 bg-rose-light/30 rounded-xl hover:bg-rose-light/50 transition-all duration-500 hover:transform hover:scale-105">
-                        <div class="w-20 h-20 rounded-full bg-rose-dark/10 flex items-center justify-center mx-auto mb-6">
-                            <i class="fas fa-eye text-rose-dark text-3xl"></i>
-                        </div>
-                        <h3 class="font-handwriting text-2xl text-ink-soft mb-4">Silent Understanding</h3>
-                        <p class="text-gray-700">
-                            The way we communicate without words—a glance, a touch, a shared silence that speaks volumes.
-                        </p>
-                    </div>
-                    
-                    <div class="text-center p-6 bg-rose-light/30 rounded-xl hover:bg-rose-light/50 transition-all duration-500 hover:transform hover:scale-105">
-                        <div class="w-20 h-20 rounded-full bg-rose-dark/10 flex items-center justify-center mx-auto mb-6">
-                            <i class="fas fa-hands-helping text-rose-dark text-3xl"></i>
-                        </div>
-                        <h3 class="font-handwriting text-2xl text-ink-soft mb-4">Safe Harbor</h3>
-                        <p class="text-gray-700">
-                            In your arms, I've found my sanctuary—a place where all my broken pieces feel whole again.
-                        </p>
-                    </div>
-                    
-                    <div class="text-center p-6 bg-rose-light/30 rounded-xl hover:bg-rose-light/50 transition-all duration-500 hover:transform hover:scale-105">
-                        <div class="w-20 h-20 rounded-full bg-rose-dark/10 flex items-center justify-center mx-auto mb-6">
-                            <i class="fas fa-infinity text-rose-dark text-3xl"></i>
-                        </div>
-                        <h3 class="font-handwriting text-2xl text-ink-soft mb-4">Timeless Bond</h3>
-                        <p class="text-gray-700">
-                            Some loves are written in the stars—ours feels etched into the very fabric of eternity.
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="mt-12 pt-8 border-t border-rose-light">
-                    <p class="text-center text-xl italic text-rose-dark">
-                        "I love you not only for what you are, but for what I am when I am with you."
-                    </p>
-                </div>
+      <!-- Letter content sections -->
+      <div id="letter-content" class="hidden">
+        <!-- First page of the letter -->
+        <section
+          class="min-h-screen flex flex-col justify-center items-center px-4 py-12"
+        >
+          <div
+            class="romantic-card max-w-3xl w-full bg-rose-50 rounded-2xl p-8 md:p-12 shadow-xl page-turn border border-rose-100"
+          >
+            <div class="love-line mb-10"></div>
+            <div class="text-center mb-10">
+              <h2 class="handwritten text-4xl md:text-5xl text-rose-700 mb-6">
+                My Beloved,
+              </h2>
+              <p class="text-xl text-gray-700 mb-6 leading-relaxed">
+                If I could write the story of our love, every chapter would be
+                filled with the moments that took my breath away, the laughter
+                that filled my soul, and the quiet understanding that needs no
+                words.
+              </p>
             </div>
-        </div>
-    </section>
 
-    <!-- Chapter 4: Forever Promise -->
-    <section class="min-h-screen py-20 px-4 flex items-center relative overflow-hidden bg-gradient-to-br from-rose-light to-paper-cream">
-        <div class="absolute inset-0 paper-texture opacity-30"></div>
-        
-        <!-- Animated floating elements -->
-        <div class="absolute top-20 left-10 animate-float">
-            <i class="fas fa-heart text-rose-dark/20 text-5xl"></i>
-        </div>
-        <div class="absolute bottom-32 right-20 animate-float" style="animation-delay: 2s;">
-            <i class="fas fa-star text-gold-accent/30 text-4xl"></i>
-        </div>
-        
-        <div class="container mx-auto max-w-4xl relative z-10">
-            <div class="bg-white/90 backdrop-blur-sm rounded-xl shadow-xl p-8 md:p-12 border border-rose-dark/10 animate-fade-in-up">
-                <div class="flex items-center justify-center mb-10">
-                    <div class="w-16 h-16 rounded-full bg-gradient-to-r from-rose-dark to-gold-accent flex items-center justify-center mr-4 shadow-lg">
-                        <i class="fas fa-infinity text-white text-2xl"></i>
-                    </div>
-                    <h2 class="font-handwriting text-4xl md:text-5xl text-ink-soft">My Eternal Promise</h2>
-                </div>
-                
-                <div class="text-center mb-12">
-                    <p class="text-2xl md:text-3xl italic text-rose-dark mb-8 leading-relaxed">
-                        "To love you today, tomorrow, and in all the days that follow—this is my forever vow."
-                    </p>
-                </div>
-                
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="bg-gradient-to-br from-rose-light to-white p-8 rounded-xl shadow-md border border-rose-dark/10">
-                        <h3 class="font-handwriting text-3xl text-ink-soft mb-6 text-center">My Vows to You</h3>
-                        <ul class="space-y-4">
-                            <li class="flex items-start">
-                                <i class="fas fa-heart text-rose-dark mt-1 mr-3"></i>
-                                <span>To choose you, every single day, even when it's hard</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-heart text-rose-dark mt-1 mr-3"></i>
-                                <span>To be your shelter in every storm that comes our way</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-heart text-rose-dark mt-1 mr-3"></i>
-                                <span>To remember that your happiness is intertwined with my own</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-heart text-rose-dark mt-1 mr-3"></i>
-                                <span>To grow with you, learn with you, and build a lifetime of memories</span>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="flex flex-col items-center justify-center p-8">
-                        <div class="relative mb-8">
-                            <div class="w-64 h-64 rounded-full bg-gradient-to-tr from-rose-light via-white to-rose-dark/20 flex items-center justify-center shadow-lg border border-rose-dark/10">
-                                <div class="text-center">
-                                    <i class="fas fa-heart text-rose-dark text-6xl mb-4 animate-heartbeat"></i>
-                                    <p class="font-handwriting text-2xl text-ink-soft">Forever Yours</p>
-                                </div>
-                            </div>
-                            <div class="absolute -top-2 -right-2 w-12 h-12 rounded-full bg-gold-accent flex items-center justify-center shadow-lg">
-                                <i class="fas fa-star text-white"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="mt-12 pt-8 border-t border-rose-light text-center">
-                    <p class="text-xl text-ink-soft">
-                        With all the love my heart can hold,
-                    </p>
-                    <p class="font-handwriting text-3xl text-rose-dark mt-4">
-                        Always and forever,
-                    </p>
-                    <div class="mt-6 inline-block">
-                        <div class="border border-rose-dark/20 rounded-lg p-4 inline-block">
-                            <p class="font-handwriting text-2xl text-ink-soft">Your Beloved</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="flex justify-center mb-10">
+              <div
+                class="w-24 h-1 bg-gradient-to-r from-rose-200 to-rose-400 rounded-full"
+              ></div>
             </div>
-            
-            <!-- Final scroll hint -->
-            <div class="text-center mt-12 animate-pulse-gentle">
-                <p class="text-rose-dark mb-2">Our story continues with every beat of our hearts</p>
-                <i class="fas fa-heart text-rose-dark animate-heartbeat"></i>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-10">
+              <div class="bg-white/70 p-6 rounded-xl border border-rose-100">
+                <i class="fas fa-star text-rose-400 text-3xl mb-4"></i>
+                <h3 class="text-2xl font-semibold text-rose-800 mb-3">
+                  Our First Meeting
+                </h3>
+                <p class="text-gray-700">
+                  I still remember the way the world seemed to pause when our
+                  eyes first met. Time stood still, and in that moment, I knew
+                  my life had changed forever.
+                </p>
+              </div>
+
+              <div class="bg-white/70 p-6 rounded-xl border border-rose-100">
+                <i class="fas fa-moon text-rose-400 text-3xl mb-4"></i>
+                <h3 class="text-2xl font-semibold text-rose-800 mb-3">
+                  Late Night Talks
+                </h3>
+                <p class="text-gray-700">
+                  Those conversations that stretched into the early hours, where
+                  we shared our dreams and fears, created a bond stronger than I
+                  ever thought possible.
+                </p>
+              </div>
             </div>
-        </div>
-    </section>
+
+            <div class="text-center">
+              <p class="text-xl italic text-rose-600">
+                You are my always and forever.
+              </p>
+            </div>
+            <div class="love-line mt-10"></div>
+          </div>
+
+          <div class="mt-12 text-center">
+            <i
+              class="fas fa-chevron-down text-rose-400 text-2xl animate-bounce"
+            ></i>
+          </div>
+        </section>
+
+        <!-- Second page of the letter -->
+        <section
+          class="min-h-screen flex flex-col justify-center items-center px-4 py-12"
+        >
+          <div
+            class="romantic-card max-w-3xl w-full bg-amber-50 rounded-2xl p-8 md:p-12 shadow-xl page-turn border border-amber-100"
+            style="animation-delay: 0.3s"
+          >
+            <div class="love-line mb-10"></div>
+            <div class="text-center mb-10">
+              <h2 class="handwritten text-4xl md:text-5xl text-amber-700 mb-6">
+                The Little Things
+              </h2>
+              <p class="text-xl text-gray-700 mb-6 leading-relaxed">
+                It's not just the grand gestures, but the small moments that
+                have woven you into the very fabric of my being.
+              </p>
+            </div>
+
+            <div class="mb-10">
+              <div class="flex items-center mb-6">
+                <div
+                  class="w-12 h-12 rounded-full bg-rose-100 flex items-center justify-center mr-4"
+                >
+                  <i class="fas fa-coffee text-rose-500"></i>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold text-rose-800">
+                    Morning rituals
+                  </h3>
+                  <p class="text-gray-700">
+                    The way you smile before your first sip of coffee
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-center mb-6">
+                <div
+                  class="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center mr-4"
+                >
+                  <i class="fas fa-music text-amber-500"></i>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold text-amber-800">
+                    Shared melodies
+                  </h3>
+                  <p class="text-gray-700">
+                    How you hum along to songs without realizing
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-center mb-6">
+                <div
+                  class="w-12 h-12 rounded-full bg-pink-100 flex items-center justify-center mr-4"
+                >
+                  <i class="fas fa-book text-pink-500"></i>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold text-pink-800">
+                    Quiet moments
+                  </h3>
+                  <p class="text-gray-700">
+                    Reading together in comfortable silence
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="bg-white/70 p-6 rounded-xl border border-amber-200 mb-10"
+            >
+              <p class="text-center text-xl text-gray-700 italic">
+                "In your eyes, I found my home. In your heart, I found my peace.
+                In your soul, I found my match."
+              </p>
+            </div>
+
+            <div class="text-center">
+              <p class="text-xl text-amber-600">
+                These fragments of our days are the treasures I hold closest.
+              </p>
+            </div>
+            <div class="love-line mt-10"></div>
+          </div>
+
+          <div class="mt-12 text-center">
+            <i
+              class="fas fa-chevron-down text-rose-400 text-2xl animate-bounce"
+            ></i>
+          </div>
+        </section>
+
+        <!-- Third page of the letter -->
+        <section
+          class="min-h-screen flex flex-col justify-center items-center px-4 py-12"
+        >
+          <div
+            class="romantic-card max-w-3xl w-full bg-pink-50 rounded-2xl p-8 md:p-12 shadow-xl page-turn border border-pink-100"
+            style="animation-delay: 0.6s"
+          >
+            <div class="love-line mb-10"></div>
+            <div class="text-center mb-10">
+              <h2 class="handwritten text-4xl md:text-5xl text-pink-700 mb-6">
+                My Promise to You
+              </h2>
+              <p class="text-xl text-gray-700 mb-6 leading-relaxed">
+                With every sunrise and every star that graces the night sky, my
+                love for you grows deeper. This is my vow to you, written with
+                all the sincerity my heart can hold.
+              </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 mb-10">
+              <div
+                class="bg-white/80 p-5 rounded-xl text-center border border-pink-100"
+              >
+                <div
+                  class="w-16 h-16 rounded-full bg-pink-100 flex items-center justify-center mx-auto mb-4"
+                >
+                  <i
+                    class="fas fa-hand-holding-heart text-pink-500 text-2xl"
+                  ></i>
+                </div>
+                <h3 class="text-xl font-semibold text-pink-800 mb-2">
+                  To Cherish
+                </h3>
+                <p class="text-gray-700">
+                  I will cherish every moment, every laugh, every tear we share.
+                </p>
+              </div>
+
+              <div
+                class="bg-white/80 p-5 rounded-xl text-center border border-pink-100"
+              >
+                <div
+                  class="w-16 h-16 rounded-full bg-rose-100 flex items-center justify-center mx-auto mb-4"
+                >
+                  <i class="fas fa-shield-heart text-rose-500 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-rose-800 mb-2">
+                  To Protect
+                </h3>
+                <p class="text-gray-700">
+                  I will protect the love we've built with all that I am.
+                </p>
+              </div>
+
+              <div
+                class="bg-white/80 p-5 rounded-xl text-center border border-pink-100"
+              >
+                <div
+                  class="w-16 h-16 rounded-full bg-red-100 flex items-center justify-center mx-auto mb-4"
+                >
+                  <i class="fas fa-infinity text-red-500 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-red-800 mb-2">
+                  To Continue
+                </h3>
+                <p class="text-gray-700">
+                  I will choose you, again and again, for all my days.
+                </p>
+              </div>
+            </div>
+
+            <div class="text-center mb-10">
+              <div
+                class="inline-flex items-center justify-center p-2 bg-gradient-to-r from-rose-400 to-pink-400 rounded-full"
+              >
+                <div class="bg-white p-6 rounded-full">
+                  <i class="fas fa-heart text-rose-500 text-5xl float"></i>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="bg-gradient-to-r from-rose-50 to-pink-50 p-8 rounded-xl border border-pink-200"
+            >
+              <p class="text-center text-2xl handwritten text-pink-800">
+                My love for you is not a fleeting moment, but an eternal sunrise
+                that paints the sky of my soul with hues of devotion.
+              </p>
+            </div>
+
+            <div class="love-line mt-10"></div>
+          </div>
+
+          <div class="mt-12 text-center">
+            <i
+              class="fas fa-chevron-down text-rose-400 text-2xl animate-bounce"
+            ></i>
+          </div>
+        </section>
+
+        <!-- Final page with signature -->
+        <section
+          class="min-h-screen flex flex-col justify-center items-center px-4 py-12"
+        >
+          <div
+            class="romantic-card max-w-3xl w-full bg-white rounded-2xl p-8 md:p-12 shadow-xl page-turn"
+            style="animation-delay: 0.9s"
+          >
+            <div class="text-center">
+              <div class="love-line mb-10"></div>
+
+              <div class="mb-10">
+                <i class="fas fa-feather-alt text-rose-300 text-5xl mb-6"></i>
+                <h2 class="handwritten text-4xl md:text-5xl text-gray-800 mb-6">
+                  Forever Yours
+                </h2>
+              </div>
+
+              <div class="mb-12">
+                <p class="text-2xl text-gray-700 mb-8 leading-relaxed">
+                  As I seal this letter with all the love my heart can hold,
+                  know that with every beat, it whispers your name. You are my
+                  greatest adventure, my safest harbor, and my most beautiful
+                  dream realized.
+                </p>
+
+                <p class="text-2xl text-gray-700 mb-10 leading-relaxed">
+                  No matter where life takes us, my hand will always seek yours,
+                  my heart will always recognize yours, and my soul will always
+                  find its way back to you.
+                </p>
+              </div>
+
+              <div class="mb-12">
+                <div class="inline-block border-t-2 border-rose-300 pt-4 px-8">
+                  <p class="handwritten text-4xl text-rose-700">
+                    With all my love,
+                  </p>
+                  <p class="handwritten text-3xl text-gray-800 mt-2">
+                    Always and forever
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex justify-center space-x-6 text-3xl text-rose-400">
+                <i
+                  class="fas fa-heart heartbeat"
+                  style="animation-delay: 0.2s"
+                ></i>
+                <i
+                  class="fas fa-heart heartbeat"
+                  style="animation-delay: 0.4s"
+                ></i>
+                <i
+                  class="fas fa-heart heartbeat"
+                  style="animation-delay: 0.6s"
+                ></i>
+                <i
+                  class="fas fa-heart heartbeat"
+                  style="animation-delay: 0.8s"
+                ></i>
+                <i
+                  class="fas fa-heart heartbeat"
+                  style="animation-delay: 1s"
+                ></i>
+              </div>
+
+              <div class="love-line mt-10"></div>
+            </div>
+          </div>
+
+          <div class="mt-12 text-center">
+            <p class="text-lg text-gray-600 mb-6">
+              Thank you for reading my heart's letter
+            </p>
+            <button
+              id="replay-btn"
+              class="bg-gradient-to-r from-rose-500 to-pink-500 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+            >
+              <i class="fas fa-redo mr-2"></i> Read Again
+            </button>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Audio for heartbeat -->
+    <audio id="heartbeat-audio" loop>
+      <source
+        src="https://assets.mixkit.co/sfx/preview/mixkit-heartbeat-1181.mp3"
+        type="audio/mpeg"
+      />
+    </audio>
 
     <script>
-        // Create heart trail effect
-        document.addEventListener('mousemove', function(e) {
-            const heart = document.createElement('div');
-            heart.className = 'heart-trail';
-            heart.innerHTML = '<i class="fas fa-heart text-rose-dark"></i>';
-            document.getElementById('heart-trail-container').appendChild(heart);
-            
-            const x = e.clientX;
-            const y = e.clientY;
-            
-            heart.style.left = `${x - 10}px`;
-            heart.style.top = `${y - 10}px`;
-            
-            // Random size
-            const size = Math.random() * 0.8 + 0.5;
-            heart.style.fontSize = `${size}rem`;
-            
-            // Random rotation
-            const rotation = Math.random() * 360;
-            heart.style.transform = `rotate(${rotation}deg)`;
-            
-            // Animate heart
-            const animation = heart.animate([
-                { opacity: 0.8, transform: `rotate(${rotation}deg) scale(1)` },
-                { opacity: 0, transform: `rotate(${rotation + 180}deg) scale(0)` }
-            ], {
-                duration: Math.random() * 1000 + 1000,
-                easing: 'cubic-bezier(0.215, 0.610, 0.355, 1)'
+      document.addEventListener("DOMContentLoaded", function () {
+        // Create floating elements
+        const floatingContainer = document.getElementById("floating-elements");
+        const colors = ["#fda4af", "#e11d48", "#fb7185", "#fecdd3"];
+
+        for (let i = 0; i < 25; i++) {
+          const petal = document.createElement("div");
+          petal.className = "rose-petal float";
+          petal.style.left = `${Math.random() * 100}vw`;
+          petal.style.top = `${Math.random() * 100}vh`;
+          petal.style.width = `${Math.random() * 15 + 10}px`;
+          petal.style.height = petal.style.width;
+          petal.style.backgroundColor =
+            colors[Math.floor(Math.random() * colors.length)];
+          petal.style.opacity = `${Math.random() * 0.5 + 0.3}`;
+          petal.style.animationDuration = `${Math.random() * 10 + 5}s`;
+          petal.style.animationDelay = `${Math.random() * 5}s`;
+          floatingContainer.appendChild(petal);
+        }
+
+        // Envelope interaction
+        const envelope = document.getElementById("envelope");
+        const letterContent = document.getElementById("letter-content");
+        const replayBtn = document.getElementById("replay-btn");
+        const heartbeatAudio = document.getElementById("heartbeat-audio");
+
+        envelope.addEventListener("click", function () {
+          this.classList.add("open");
+
+          // Play heartbeat sound softly
+          heartbeatAudio.volume = 0.3;
+          heartbeatAudio
+            .play()
+            .catch((e) => console.log("Audio play failed:", e));
+
+          // Show letter content with delay
+          setTimeout(() => {
+            letterContent.classList.remove("hidden");
+            letterContent.classList.add("block");
+
+            // Scroll to the first page of the letter
+            document.querySelector("#letter-content section").scrollIntoView({
+              behavior: "smooth",
             });
-            
-            // Remove heart after animation
-            animation.onfinish = () => heart.remove();
+          }, 1500);
         });
 
-        // Scroll-triggered animations
+        // Replay button functionality
+        replayBtn.addEventListener("click", function () {
+          // Reset envelope
+          envelope.classList.remove("open");
+
+          // Hide letter content
+          letterContent.classList.remove("block");
+          letterContent.classList.add("hidden");
+
+          // Stop heartbeat audio
+          heartbeatAudio.pause();
+          heartbeatAudio.currentTime = 0;
+
+          // Scroll back to top
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        });
+
+        // Scroll animations for letter pages
         const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.2
+          threshold: 0.2,
+          rootMargin: "0px 0px -50px 0px",
         };
 
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-fade-in-up');
-                }
-            });
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              // Increase heartbeat volume when viewing letter
+              if (heartbeatAudio.paused === false) {
+                heartbeatAudio.volume = Math.min(
+                  0.5,
+                  heartbeatAudio.volume + 0.1
+                );
+              }
+
+              // Add subtle animation to the card
+              entry.target.style.transform = "translateY(0)";
+            } else {
+              // Decrease heartbeat volume when not viewing
+              if (heartbeatAudio.paused === false) {
+                heartbeatAudio.volume = Math.max(
+                  0.2,
+                  heartbeatAudio.volume - 0.1
+                );
+              }
+            }
+          });
         }, observerOptions);
 
-        // Observe all sections
-        document.querySelectorAll('section').forEach((section) => {
-            observer.observe(section);
+        // Observe all romantic cards
+        document.querySelectorAll(".romantic-card").forEach((card) => {
+          observer.observe(card);
         });
 
-        // Gentle page load animation
-        window.addEventListener('load', () => {
-            document.body.style.opacity = '0';
-            document.body.style.transition = 'opacity 1.5s ease-in-out';
-            
-            setTimeout(() => {
-                document.body.style.opacity = '1';
-            }, 300);
+        // Parallax effect for floating elements on scroll
+        window.addEventListener("scroll", function () {
+          const scrolled = window.pageYOffset;
+          const rate = scrolled * -0.5;
+
+          document.querySelectorAll(".rose-petal").forEach((petal) => {
+            petal.style.transform = `translateY(${rate}px)`;
+          });
         });
 
-        // Add a romantic message on click anywhere
-        const romanticMessages = [
-            "My heart beats for you",
-            "Every moment with you is precious",
-            "You are my always",
-            "I carry your heart with me",
-            "Love you more than yesterday",
-            "You are my favorite thought",
-            "Forever isn't long enough",
-            "My soul recognized yours"
-        ];
+        // Add click effect for hearts
+        document.addEventListener("click", function (e) {
+          // Only create hearts if we're in the letter content
+          if (!letterContent.classList.contains("hidden")) {
+            const x = e.clientX;
+            const y = e.clientY;
 
-        document.addEventListener('click', (e) => {
-            // Only create message if not clicking on interactive elements
-            if (!e.target.closest('button') && !e.target.closest('a')) {
-                const message = document.createElement('div');
-                message.className = 'fixed z-50 font-handwriting text-rose-dark pointer-events-none';
-                message.textContent = romanticMessages[Math.floor(Math.random() * romanticMessages.length)];
-                message.style.left = `${e.clientX}px`;
-                message.style.top = `${e.clientY}px`;
-                message.style.fontSize = '1.5rem';
-                message.style.opacity = '0';
-                document.body.appendChild(message);
-                
-                // Animate message
-                const animation = message.animate([
-                    { opacity: 0, transform: 'translateY(0) scale(0.5)' },
-                    { opacity: 1, transform: 'translateY(-20px) scale(1)' },
-                    { opacity: 0, transform: 'translateY(-40px) scale(0.5)' }
-                ], {
-                    duration: 2000,
-                    easing: 'cubic-bezier(0.215, 0.610, 0.355, 1)'
-                });
-                
-                // Remove after animation
-                animation.onfinish = () => message.remove();
-            }
+            const heart = document.createElement("div");
+            heart.innerHTML = '<i class="fas fa-heart"></i>';
+            heart.style.position = "fixed";
+            heart.style.left = `${x}px`;
+            heart.style.top = `${y}px`;
+            heart.style.color =
+              colors[Math.floor(Math.random() * colors.length)];
+            heart.style.fontSize = "20px";
+            heart.style.pointerEvents = "none";
+            heart.style.zIndex = "9999";
+            heart.style.transform = "translate(-50%, -50%)";
+            heart.style.opacity = "0.9";
+
+            document.body.appendChild(heart);
+
+            // Animate heart
+            const animation = heart.animate(
+              [
+                { transform: "translate(-50%, -50%) scale(1)", opacity: 0.9 },
+                { transform: "translate(-50%, -100px) scale(1.5)", opacity: 0 },
+              ],
+              {
+                duration: 1000,
+                easing: "ease-out",
+              }
+            );
+
+            animation.onfinish = () => heart.remove();
+          }
         });
+      });
     </script>
-</body>
+  </body>
 </html>
