@@ -1,1054 +1,534 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cloth & Co. | Sustainable Fashion</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Heart's Letter to You</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'rose-light': '#fdf2f8',
+                        'rose-medium': '#fce7f3',
+                        'rose-dark': '#fbcfe8',
+                        'paper-cream': '#fefaf0',
+                        'ink-soft': '#7c3aed',
+                        'gold-accent': '#d4af37',
+                    },
+                    fontFamily: {
+                        'handwriting': ['Dancing Script', 'cursive'],
+                        'serif': ['Cormorant Garamond', 'serif'],
+                    },
+                    animation: {
+                        'heartbeat': 'heartbeat 1.5s ease-in-out infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'fade-in': 'fadeIn 1.5s ease-in-out',
+                        'fade-in-up': 'fadeInUp 1.2s ease-out',
+                        'pulse-gentle': 'pulseGentle 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        heartbeat: {
+                            '0%': { transform: 'scale(1)' },
+                            '5%': { transform: 'scale(1.1)' },
+                            '10%': { transform: 'scale(1)' },
+                            '15%': { transform: 'scale(1.1)' },
+                            '20%': { transform: 'scale(1)' },
+                            '100%': { transform: 'scale(1)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
+                            '50%': { transform: 'translateY(-20px) rotate(1deg)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        pulseGentle: {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '0.7' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap");
-
-      :root {
-        --charcoal: #1c1c1c;
-        --ivory: #f7f5f2;
-        --taupe: #b8ada0;
-        --sage: #8fa99b;
-        --white: #ffffff;
-      }
-
-      body {
-        font-family: "Poppins", sans-serif;
-        background-color: var(--ivory);
-        color: var(--charcoal);
-        overflow-x: hidden;
-      }
-
-      .heading-font {
-        font-family: "Playfair Display", serif;
-      }
-
-      /* Custom animations */
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
+        body {
+            background: linear-gradient(135deg, #fdf2f8 0%, #fefaf0 100%);
+            overflow-x: hidden;
         }
-        to {
-          opacity: 1;
-          transform: translateY(0);
+        .paper-texture {
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23fbcfe8' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
         }
-      }
-
-      .fade-in-up {
-        animation: fadeInUp 0.8s ease-out forwards;
-      }
-
-      /* Custom button styling */
-      .btn-primary {
-        background-color: var(--sage);
-        color: var(--white);
-        transition: all 0.3s ease;
-      }
-
-      .btn-primary:hover {
-        background-color: #7a9487;
-        transform: translateY(-2px);
-      }
-
-      /* Custom card styling */
-      .product-card {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-
-      .product-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-      }
-
-      /* Custom scrollbar */
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-
-      ::-webkit-scrollbar-track {
-        background: var(--ivory);
-      }
-
-      ::-webkit-scrollbar-thumb {
-        background: var(--taupe);
-        border-radius: 4px;
-      }
-
-      /* Mobile menu animation */
-      .mobile-menu {
-        transform: translateX(-100%);
-        transition: transform 0.4s ease;
-      }
-
-      .mobile-menu.open {
-        transform: translateX(0);
-      }
-
-      /* Instagram feed hover effect */
-      .instagram-item {
-        position: relative;
-        overflow: hidden;
-      }
-
-      .instagram-item img {
-        transition: transform 0.5s ease;
-      }
-
-      .instagram-item:hover img {
-        transform: scale(1.1);
-      }
-
-      .instagram-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(140, 169, 155, 0.8);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-      }
-
-      .instagram-item:hover .instagram-overlay {
-        opacity: 1;
-      }
+        .page-curl {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(225deg, #fefaf0 45%, #e5e7eb 50%);
+            box-shadow: -2px 2px 3px rgba(0,0,0,0.1);
+        }
+        .heart-trail {
+            position: fixed;
+            pointer-events: none;
+            z-index: 1000;
+            font-size: 1.2rem;
+            opacity: 0;
+        }
+        .seal {
+            background: radial-gradient(circle at 30% 30%, #d4af37, #b8860b);
+            box-shadow: 0 4px 12px rgba(180, 140, 40, 0.3);
+        }
+        .envelope-flap {
+            clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
+        }
+        .letter-fold {
+            transform-origin: top center;
+            animation: foldUnfold 2s ease-in-out;
+        }
+        @keyframes foldUnfold {
+            0% { transform: rotateX(90deg); opacity: 0; }
+            100% { transform: rotateX(0); opacity: 1; }
+        }
+        .scroll-hint {
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        .ink-blot {
+            filter: blur(1px);
+            opacity: 0.1;
+        }
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #fbcfe8, transparent);
+        }
     </style>
-  </head>
-  <body class="text-gray-800">
-    <!-- Header Section -->
-    <header class="sticky top-0 z-50 bg-white shadow-sm">
-      <div class="container mx-auto px-4 py-3">
-        <div class="flex items-center justify-between">
-          <!-- Logo -->
-          <div class="flex items-center">
-            <a
-              href="#"
-              class="text-2xl heading-font"
-              style="color: var(--charcoal)"
-              >Cloth & Co.</a
-            >
-          </div>
+</head>
+<body class="font-serif text-ink-soft">
+    <!-- Heart trail effect -->
+    <div id="heart-trail-container"></div>
 
-          <!-- Desktop Navigation -->
-          <nav class="hidden md:flex space-x-8">
-            <a href="#" class="hover:underline" style="color: var(--charcoal)"
-              >New Arrivals</a
-            >
-            <a href="#" class="hover:underline" style="color: var(--charcoal)"
-              >Collections</a
-            >
-            <a href="#" class="hover:underline" style="color: var(--charcoal)"
-              >Clothing</a
-            >
-            <a href="#" class="hover:underline" style="color: var(--charcoal)"
-              >Accessories</a
-            >
-            <a href="#" class="hover:underline" style="color: var(--charcoal)"
-              >Our Story</a
-            >
-          </nav>
-
-          <!-- Right side icons -->
-          <div class="flex items-center space-x-6">
-            <!-- Search -->
-            <div class="hidden md:block relative">
-              <input
-                type="text"
-                placeholder="Search..."
-                class="pl-10 pr-4 py-2 border rounded-full focus:outline-none focus:ring-1"
-                style="border-color: var(--taupe)"
-              />
-              <i
-                class="fas fa-search absolute left-3 top-3"
-                style="color: var(--taupe)"
-              ></i>
+    <!-- Envelope Opening Intro -->
+    <section id="envelope" class="min-h-screen flex items-center justify-center relative overflow-hidden p-4">
+        <div class="absolute inset-0 paper-texture"></div>
+        
+        <!-- Floating decorative elements -->
+        <div class="absolute top-10 left-10 text-rose-dark opacity-30 animate-float">
+            <i class="fas fa-heart text-4xl"></i>
+        </div>
+        <div class="absolute bottom-20 right-10 text-rose-dark opacity-30 animate-float" style="animation-delay: 1s;">
+            <i class="fas fa-feather-alt text-3xl"></i>
+        </div>
+        <div class="absolute top-1/3 right-1/4 text-rose-dark opacity-30 animate-float" style="animation-delay: 2s;">
+            <i class="fas fa-star text-2xl"></i>
+        </div>
+        
+        <!-- Envelope -->
+        <div class="relative z-10 w-full max-w-2xl">
+            <div class="bg-paper-cream rounded-lg shadow-xl p-8 md:p-12 letter-fold relative border border-rose-dark/20">
+                <!-- Page curl effect -->
+                <div class="page-curl rounded-bl-lg"></div>
+                
+                <!-- Seal -->
+                <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 seal w-16 h-16 rounded-full flex items-center justify-center shadow-lg">
+                    <i class="fas fa-heart text-white text-xl"></i>
+                </div>
+                
+                <!-- Letter content -->
+                <div class="text-center mb-8 animate-fade-in">
+                    <h1 class="font-handwriting text-5xl md:text-6xl text-ink-soft mb-4">My Dearest Love,</h1>
+                    <div class="section-divider my-8"></div>
+                    <p class="text-xl md:text-2xl italic text-rose-dark mb-6">
+                        This letter holds the words my heart has whispered since the day we met.
+                    </p>
+                    <p class="text-lg">
+                        Scroll gently, as you would turn the pages of our story...
+                    </p>
+                </div>
+                
+                <!-- Scroll hint -->
+                <div class="flex justify-center mt-12 scroll-hint">
+                    <div class="text-center">
+                        <p class="text-rose-dark mb-2">Begin our story</p>
+                        <i class="fas fa-chevron-down text-gold-accent text-xl"></i>
+                    </div>
+                </div>
             </div>
-
-            <!-- Account -->
-            <a href="#" class="hidden md:block">
-              <i class="fas fa-user text-xl" style="color: var(--charcoal)"></i>
-            </a>
-
-            <!-- Cart -->
-            <a href="#" class="relative">
-              <i
-                class="fas fa-shopping-bag text-xl"
-                style="color: var(--charcoal)"
-              ></i>
-              <span
-                class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center"
-                >3</span
-              >
-            </a>
-
-            <!-- Mobile menu button -->
-            <button id="mobileMenuButton" class="md:hidden">
-              <i class="fas fa-bars text-xl" style="color: var(--charcoal)"></i>
-            </button>
-          </div>
         </div>
-
-        <!-- Mobile Search -->
-        <div class="mt-3 md:hidden">
-          <div class="relative">
-            <input
-              type="text"
-              placeholder="Search..."
-              class="w-full pl-10 pr-4 py-2 border rounded-full focus:outline-none focus:ring-1"
-              style="border-color: var(--taupe)"
-            />
-            <i
-              class="fas fa-search absolute left-3 top-3"
-              style="color: var(--taupe)"
-            ></i>
-          </div>
-        </div>
-      </div>
-
-      <!-- Mobile Menu -->
-      <div
-        id="mobileMenu"
-        class="mobile-menu fixed inset-y-0 left-0 w-64 bg-white shadow-lg z-50 p-6"
-      >
-        <div class="flex justify-between items-center mb-8">
-          <h3 class="text-xl heading-font" style="color: var(--charcoal)">
-            Menu
-          </h3>
-          <button id="closeMobileMenu">
-            <i class="fas fa-times text-xl" style="color: var(--charcoal)"></i>
-          </button>
-        </div>
-
-        <nav class="flex flex-col space-y-6">
-          <a
-            href="#"
-            class="text-lg hover:underline"
-            style="color: var(--charcoal)"
-            >New Arrivals</a
-          >
-          <a
-            href="#"
-            class="text-lg hover:underline"
-            style="color: var(--charcoal)"
-            >Collections</a
-          >
-          <a
-            href="#"
-            class="text-lg hover:underline"
-            style="color: var(--charcoal)"
-            >Clothing</a
-          >
-          <a
-            href="#"
-            class="text-lg hover:underline"
-            style="color: var(--charcoal)"
-            >Accessories</a
-          >
-          <a
-            href="#"
-            class="text-lg hover:underline"
-            style="color: var(--charcoal)"
-            >Our Story</a
-          >
-          <a
-            href="#"
-            class="text-lg hover:underline"
-            style="color: var(--charcoal)"
-            >Account</a
-          >
-          <a
-            href="#"
-            class="text-lg hover:underline"
-            style="color: var(--charcoal)"
-            >Wishlist</a
-          >
-        </nav>
-
-        <div class="mt-12 pt-8 border-t" style="border-color: var(--taupe)">
-          <p class="text-sm mb-4">Follow us</p>
-          <div class="flex space-x-4">
-            <a href="#"
-              ><i
-                class="fab fa-instagram text-xl"
-                style="color: var(--sage)"
-              ></i
-            ></a>
-            <a href="#"
-              ><i class="fab fa-facebook text-xl" style="color: var(--sage)"></i
-            ></a>
-            <a href="#"
-              ><i
-                class="fab fa-pinterest text-xl"
-                style="color: var(--sage)"
-              ></i
-            ></a>
-            <a href="#"
-              ><i class="fab fa-tiktok text-xl" style="color: var(--sage)"></i
-            ></a>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <!-- Hero Banner -->
-    <section class="py-12 md:py-20 px-4 overflow-hidden">
-      <div class="container mx-auto">
-        <div class="flex flex-col lg:flex-row items-center">
-          <div class="lg:w-1/2 mb-12 lg:mb-0 fade-in-up">
-            <h1
-              class="text-4xl md:text-5xl lg:text-6xl heading-font mb-6"
-              style="color: var(--charcoal)"
-            >
-              Autumn Collection 2023
-            </h1>
-            <p class="text-lg md:text-xl mb-8" style="color: var(--charcoal)">
-              Discover sustainable fashion that combines timeless elegance with
-              modern comfort. Crafted with care for you and the planet.
-            </p>
-            <div class="flex space-x-4">
-              <a href="#" class="px-8 py-3 rounded-full btn-primary font-medium"
-                >Shop Collection</a
-              >
-              <a
-                href="#"
-                class="px-8 py-3 rounded-full border font-medium"
-                style="border-color: var(--sage); color: var(--sage)"
-                >Explore Lookbook</a
-              >
-            </div>
-          </div>
-          <div class="lg:w-1/2 relative">
-            <div class="relative z-10">
-              <img
-                src="https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80"
-                alt="Cloth & Co. Autumn Collection"
-                class="rounded-lg shadow-xl w-full h-96 md:h-auto object-cover"
-              />
-            </div>
-            <div
-              class="absolute -bottom-6 -right-6 w-64 h-64 rounded-full opacity-20"
-              style="background-color: var(--sage)"
-            ></div>
-          </div>
-        </div>
-      </div>
     </section>
 
-    <!-- Featured Collections -->
-    <section class="py-16 px-4" style="background-color: var(--white)">
-      <div class="container mx-auto">
-        <div class="text-center mb-12">
-          <h2
-            class="text-3xl md:text-4xl heading-font mb-4"
-            style="color: var(--charcoal)"
-          >
-            Featured Collections
-          </h2>
-          <p class="text-lg max-w-2xl mx-auto" style="color: var(--charcoal)">
-            Curated selections for every occasion and style preference
-          </p>
+    <!-- Chapter 1: First Meeting -->
+    <section class="min-h-screen py-20 px-4 flex items-center relative overflow-hidden">
+        <div class="absolute inset-0 paper-texture"></div>
+        
+        <!-- Ink blot decoration -->
+        <div class="absolute top-10 right-10 w-40 h-40 bg-ink-soft rounded-full ink-blot opacity-20"></div>
+        <div class="absolute bottom-10 left-10 w-32 h-32 bg-rose-dark rounded-full ink-blot opacity-20"></div>
+        
+        <div class="container mx-auto max-w-4xl relative z-10">
+            <div class="bg-white/80 backdrop-blur-sm rounded-xl shadow-lg p-8 md:p-12 border border-rose-dark/10 animate-fade-in-up">
+                <div class="flex items-center mb-10">
+                    <div class="w-12 h-12 rounded-full bg-rose-light flex items-center justify-center mr-4">
+                        <span class="font-handwriting text-2xl text-ink-soft">1</span>
+                    </div>
+                    <h2 class="font-handwriting text-4xl md:text-5xl text-ink-soft">The Day Our Worlds Collided</h2>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="relative">
+                        <div class="absolute -inset-4 bg-rose-light rounded-lg transform -rotate-3"></div>
+                        <div class="relative bg-white p-6 rounded-lg shadow-md border border-rose-dark/10">
+                            <p class="text-lg mb-4">
+                                I remember the exact moment—the way the light caught your eyes, 
+                                how time seemed to pause just for us. It wasn't just a meeting; 
+                                it was the universe aligning two souls meant to find each other.
+                            </p>
+                            <p class="text-lg">
+                                Your smile was a language I instantly understood, a story I wanted 
+                                to read for the rest of my life. In that crowded room, you were 
+                                the only person I saw, the only sound I heard.
+                            </p>
+                            <div class="mt-6 pt-6 border-t border-rose-light">
+                                <p class="font-handwriting text-2xl text-rose-dark text-right">
+                                    ~ The beginning of everything
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="inline-block p-4 bg-rose-light rounded-full animate-pulse-gentle">
+                            <i class="fas fa-heart text-rose-dark text-6xl md:text-8xl animate-heartbeat"></i>
+                        </div>
+                        <p class="mt-6 text-rose-dark italic">
+                            "A single glance was all it took—my heart recognized its home."
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <!-- Collection 1 -->
-          <div class="product-card rounded-lg overflow-hidden shadow-lg">
-            <div class="relative h-80 overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-                alt="Everyday Essentials"
-                class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-              />
-              <div
-                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"
-              ></div>
-              <div class="absolute bottom-6 left-6 text-white">
-                <h3 class="text-2xl heading-font mb-2">Everyday Essentials</h3>
-                <a href="#" class="inline-flex items-center font-medium">
-                  Shop Now <i class="fas fa-arrow-right ml-2"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Collection 2 -->
-          <div class="product-card rounded-lg overflow-hidden shadow-lg">
-            <div class="relative h-80 overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1467&q=80"
-                alt="Sustainable Luxe"
-                class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-              />
-              <div
-                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"
-              ></div>
-              <div class="absolute bottom-6 left-6 text-white">
-                <h3 class="text-2xl heading-font mb-2">Sustainable Luxe</h3>
-                <a href="#" class="inline-flex items-center font-medium">
-                  Shop Now <i class="fas fa-arrow-right ml-2"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Collection 3 -->
-          <div class="product-card rounded-lg overflow-hidden shadow-lg">
-            <div class="relative h-80 overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1520006403909-838d6b92c22e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-                alt="Modern Classics"
-                class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-              />
-              <div
-                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"
-              ></div>
-              <div class="absolute bottom-6 left-6 text-white">
-                <h3 class="text-2xl heading-font mb-2">Modern Classics</h3>
-                <a href="#" class="inline-flex items-center font-medium">
-                  Shop Now <i class="fas fa-arrow-right ml-2"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
 
-    <!-- Bestsellers / New Arrivals -->
-    <section class="py-16 px-4">
-      <div class="container mx-auto">
-        <div
-          class="flex flex-col md:flex-row justify-between items-start md:items-center mb-12"
-        >
-          <div>
-            <h2
-              class="text-3xl md:text-4xl heading-font mb-2"
-              style="color: var(--charcoal)"
-            >
-              New Arrivals & Bestsellers
-            </h2>
-            <p class="text-lg" style="color: var(--charcoal)">
-              Discover what's new and trending now
-            </p>
-          </div>
-          <div class="mt-4 md:mt-0">
-            <div class="flex space-x-2">
-              <button
-                class="px-6 py-2 rounded-full font-medium active"
-                style="background-color: var(--sage); color: var(--white)"
-              >
-                New Arrivals
-              </button>
-              <button
-                class="px-6 py-2 rounded-full border font-medium"
-                style="border-color: var(--taupe); color: var(--charcoal)"
-              >
-                Bestsellers
-              </button>
-            </div>
-          </div>
+    <!-- Chapter 2: Falling in Love -->
+    <section class="min-h-screen py-20 px-4 flex items-center relative overflow-hidden bg-rose-light/30">
+        <div class="absolute inset-0 paper-texture opacity-50"></div>
+        
+        <!-- Floating hearts -->
+        <div class="absolute top-1/4 left-1/4 animate-float">
+            <i class="fas fa-heart text-rose-dark/30 text-3xl"></i>
         </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          <!-- Product 1 -->
-          <div
-            class="product-card bg-white rounded-lg overflow-hidden shadow-md"
-          >
-            <div class="relative h-64 overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
-                alt="Organic Cotton Shirt"
-                class="w-full h-full object-cover"
-              />
-              <div class="absolute top-4 right-4">
-                <span
-                  class="px-3 py-1 rounded-full text-xs font-medium text-white"
-                  style="background-color: var(--sage)"
-                  >New</span
-                >
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-lg font-semibold mb-2">Organic Cotton Shirt</h3>
-              <p class="text-sm text-gray-600 mb-4">
-                Soft, breathable fabric with a relaxed fit
-              </p>
-              <div class="flex justify-between items-center">
-                <span class="text-xl font-medium" style="color: var(--charcoal)"
-                  >$78</span
-                >
-                <button
-                  class="px-4 py-2 rounded-full text-sm font-medium btn-primary"
-                >
-                  Add to Cart
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Product 2 -->
-          <div
-            class="product-card bg-white rounded-lg overflow-hidden shadow-md"
-          >
-            <div class="relative h-64 overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1582418702059-97ebafb35d09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1415&q=80"
-                alt="Tailored Trousers"
-                class="w-full h-full object-cover"
-              />
-              <div class="absolute top-4 right-4">
-                <span
-                  class="px-3 py-1 rounded-full text-xs font-medium text-white bg-red-500"
-                  >Bestseller</span
-                >
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-lg font-semibold mb-2">Tailored Trousers</h3>
-              <p class="text-sm text-gray-600 mb-4">
-                Modern fit with sustainable materials
-              </p>
-              <div class="flex justify-between items-center">
-                <span class="text-xl font-medium" style="color: var(--charcoal)"
-                  >$120</span
-                >
-                <button
-                  class="px-4 py-2 rounded-full text-sm font-medium btn-primary"
-                >
-                  Add to Cart
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Product 3 -->
-          <div
-            class="product-card bg-white rounded-lg overflow-hidden shadow-md"
-          >
-            <div class="relative h-64 overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1543087903-1ac2ec7aa8c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1498&q=80"
-                alt="Cashmere Blend Sweater"
-                class="w-full h-full object-cover"
-              />
-              <div class="absolute top-4 right-4">
-                <span
-                  class="px-3 py-1 rounded-full text-xs font-medium text-white"
-                  style="background-color: var(--sage)"
-                  >New</span
-                >
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-lg font-semibold mb-2">Cashmere Blend Sweater</h3>
-              <p class="text-sm text-gray-600 mb-4">
-                Luxuriously soft and warm
-              </p>
-              <div class="flex justify-between items-center">
-                <span class="text-xl font-medium" style="color: var(--charcoal)"
-                  >$145</span
-                >
-                <button
-                  class="px-4 py-2 rounded-full text-sm font-medium btn-primary"
-                >
-                  Add to Cart
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Product 4 -->
-          <div
-            class="product-card bg-white rounded-lg overflow-hidden shadow-md"
-          >
-            <div class="relative h-64 overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
-                alt="Linen Dress"
-                class="w-full h-full object-cover"
-              />
-              <div class="absolute top-4 right-4">
-                <span
-                  class="px-3 py-1 rounded-full text-xs font-medium text-white bg-red-500"
-                  >Bestseller</span
-                >
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="text-lg font-semibold mb-2">Linen Dress</h3>
-              <p class="text-sm text-gray-600 mb-4">
-                Perfect for warm days and summer evenings
-              </p>
-              <div class="flex justify-between items-center">
-                <span class="text-xl font-medium" style="color: var(--charcoal)"
-                  >$98</span
-                >
-                <button
-                  class="px-4 py-2 rounded-full text-sm font-medium btn-primary"
-                >
-                  Add to Cart
-                </button>
-              </div>
-            </div>
-          </div>
+        <div class="absolute bottom-1/3 right-1/4 animate-float" style="animation-delay: 1.5s;">
+            <i class="fas fa-heart text-rose-dark/30 text-4xl"></i>
         </div>
-      </div>
+        
+        <div class="container mx-auto max-w-4xl relative z-10">
+            <div class="bg-paper-cream/90 backdrop-blur-sm rounded-xl shadow-lg p-8 md:p-12 border border-rose-dark/10 animate-fade-in-up">
+                <div class="flex items-center mb-10">
+                    <div class="w-12 h-12 rounded-full bg-rose-light flex items-center justify-center mr-4">
+                        <span class="font-handwriting text-2xl text-ink-soft">2</span>
+                    </div>
+                    <h2 class="font-handwriting text-4xl md:text-5xl text-ink-soft">Falling, Slowly Then All at Once</h2>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="text-center order-2 md:order-1">
+                        <div class="inline-flex flex-col items-center">
+                            <div class="relative">
+                                <div class="w-48 h-48 rounded-full bg-gradient-to-br from-rose-light to-rose-dark flex items-center justify-center shadow-lg">
+                                    <i class="fas fa-kiss-wink-heart text-white text-6xl"></i>
+                                </div>
+                                <div class="absolute -bottom-4 -right-4 w-24 h-24 rounded-full bg-gold-accent/20 flex items-center justify-center">
+                                    <i class="fas fa-star text-gold-accent text-2xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="order-1 md:order-2">
+                        <p class="text-xl mb-6 leading-relaxed">
+                            With every conversation, every shared laugh, every quiet moment side by side— 
+                            I fell deeper. It wasn't a choice; it was gravity. Your soul pulled mine with 
+                            a force I couldn't resist, and I didn't want to.
+                        </p>
+                        <p class="text-xl mb-6 leading-relaxed">
+                            I discovered love in the way you make coffee in the morning, 
+                            in the sound of your voice when you're sleepy, in the space between 
+                            our hands when they almost touch.
+                        </p>
+                        <div class="bg-rose-light/50 p-6 rounded-lg border-l-4 border-rose-dark mt-8">
+                            <p class="font-handwriting text-2xl text-ink-soft italic">
+                                "You are my favorite place to go when my mind wanders."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- Brand Story Teaser -->
-    <section class="py-16 px-4" style="background-color: var(--white)">
-      <div class="container mx-auto">
-        <div class="flex flex-col lg:flex-row items-center">
-          <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
-            <h2
-              class="text-3xl md:text-4xl heading-font mb-6"
-              style="color: var(--charcoal)"
-            >
-              Our Story: Crafting Sustainable Fashion
-            </h2>
-            <p class="text-lg mb-6" style="color: var(--charcoal)">
-              Cloth & Co. was founded in 2015 with a simple mission: to create
-              beautiful, timeless clothing that respects both people and the
-              planet.
-            </p>
-            <p class="text-lg mb-8" style="color: var(--charcoal)">
-              Every piece in our collection is thoughtfully designed and
-              ethically produced using sustainable materials like organic
-              cotton, recycled polyester, and Tencel™. We partner with artisan
-              communities to preserve traditional craftsmanship while ensuring
-              fair wages and safe working conditions.
-            </p>
-            <a
-              href="#"
-              class="inline-flex items-center font-medium text-lg"
-              style="color: var(--sage)"
-            >
-              Read Our Full Story <i class="fas fa-arrow-right ml-2"></i>
-            </a>
-          </div>
-          <div class="lg:w-1/2">
-            <div class="grid grid-cols-2 gap-4">
-              <div class="rounded-lg overflow-hidden shadow-lg">
-                <img
-                  src="https://images.unsplash.com/photo-1582790695683-c2d58d9e4c12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
-                  alt="Sustainable materials"
-                  class="w-full h-64 object-cover"
-                />
-              </div>
-              <div class="rounded-lg overflow-hidden shadow-lg mt-8">
-                <img
-                  src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-                  alt="Ethical production"
-                  class="w-full h-64 object-cover"
-                />
-              </div>
-            </div>
-          </div>
+    <!-- Chapter 3: The Depth of Devotion -->
+    <section class="min-h-screen py-20 px-4 flex items-center relative overflow-hidden">
+        <div class="absolute inset-0 paper-texture"></div>
+        
+        <!-- Vintage floral decoration -->
+        <div class="absolute top-0 left-0 w-64 h-64 opacity-10 transform -translate-x-1/2 -translate-y-1/2">
+            <i class="fas fa-feather-alt text-rose-dark text-9xl"></i>
         </div>
-      </div>
+        
+        <div class="container mx-auto max-w-4xl relative z-10">
+            <div class="bg-white/80 backdrop-blur-sm rounded-xl shadow-lg p-8 md:p-12 border border-rose-dark/10 animate-fade-in-up">
+                <div class="flex items-center mb-10">
+                    <div class="w-12 h-12 rounded-full bg-rose-light flex items-center justify-center mr-4">
+                        <span class="font-handwriting text-2xl text-ink-soft">3</span>
+                    </div>
+                    <h2 class="font-handwriting text-4xl md:text-5xl text-ink-soft">The Unspoken Language of Us</h2>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center p-6 bg-rose-light/30 rounded-xl hover:bg-rose-light/50 transition-all duration-500 hover:transform hover:scale-105">
+                        <div class="w-20 h-20 rounded-full bg-rose-dark/10 flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-eye text-rose-dark text-3xl"></i>
+                        </div>
+                        <h3 class="font-handwriting text-2xl text-ink-soft mb-4">Silent Understanding</h3>
+                        <p class="text-gray-700">
+                            The way we communicate without words—a glance, a touch, a shared silence that speaks volumes.
+                        </p>
+                    </div>
+                    
+                    <div class="text-center p-6 bg-rose-light/30 rounded-xl hover:bg-rose-light/50 transition-all duration-500 hover:transform hover:scale-105">
+                        <div class="w-20 h-20 rounded-full bg-rose-dark/10 flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-hands-helping text-rose-dark text-3xl"></i>
+                        </div>
+                        <h3 class="font-handwriting text-2xl text-ink-soft mb-4">Safe Harbor</h3>
+                        <p class="text-gray-700">
+                            In your arms, I've found my sanctuary—a place where all my broken pieces feel whole again.
+                        </p>
+                    </div>
+                    
+                    <div class="text-center p-6 bg-rose-light/30 rounded-xl hover:bg-rose-light/50 transition-all duration-500 hover:transform hover:scale-105">
+                        <div class="w-20 h-20 rounded-full bg-rose-dark/10 flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-infinity text-rose-dark text-3xl"></i>
+                        </div>
+                        <h3 class="font-handwriting text-2xl text-ink-soft mb-4">Timeless Bond</h3>
+                        <p class="text-gray-700">
+                            Some loves are written in the stars—ours feels etched into the very fabric of eternity.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="mt-12 pt-8 border-t border-rose-light">
+                    <p class="text-center text-xl italic text-rose-dark">
+                        "I love you not only for what you are, but for what I am when I am with you."
+                    </p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- Social Proof -->
-    <section class="py-16 px-4">
-      <div class="container mx-auto">
-        <div class="text-center mb-12">
-          <h2
-            class="text-3xl md:text-4xl heading-font mb-4"
-            style="color: var(--charcoal)"
-          >
-            As Seen In & Customer Reviews
-          </h2>
-          <p class="text-lg max-w-2xl mx-auto" style="color: var(--charcoal)">
-            Trusted by fashion editors and loved by customers worldwide
-          </p>
+    <!-- Chapter 4: Forever Promise -->
+    <section class="min-h-screen py-20 px-4 flex items-center relative overflow-hidden bg-gradient-to-br from-rose-light to-paper-cream">
+        <div class="absolute inset-0 paper-texture opacity-30"></div>
+        
+        <!-- Animated floating elements -->
+        <div class="absolute top-20 left-10 animate-float">
+            <i class="fas fa-heart text-rose-dark/20 text-5xl"></i>
         </div>
-
-        <!-- Press Logos -->
-        <div class="flex flex-wrap justify-center items-center gap-8 mb-12">
-          <div class="text-2xl font-bold italic opacity-70">VOGUE</div>
-          <div class="text-2xl font-bold opacity-70">ELLE</div>
-          <div class="text-2xl font-bold opacity-70">Harper's Bazaar</div>
-          <div class="text-2xl font-bold opacity-70">Sustainable Style</div>
+        <div class="absolute bottom-32 right-20 animate-float" style="animation-delay: 2s;">
+            <i class="fas fa-star text-gold-accent/30 text-4xl"></i>
         </div>
-
-        <!-- Reviews -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-          <div class="bg-white p-8 rounded-lg shadow-md">
-            <div class="flex items-center mb-4">
-              <div class="text-yellow-400">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-              <span class="ml-2 font-medium">5.0</span>
+        
+        <div class="container mx-auto max-w-4xl relative z-10">
+            <div class="bg-white/90 backdrop-blur-sm rounded-xl shadow-xl p-8 md:p-12 border border-rose-dark/10 animate-fade-in-up">
+                <div class="flex items-center justify-center mb-10">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-r from-rose-dark to-gold-accent flex items-center justify-center mr-4 shadow-lg">
+                        <i class="fas fa-infinity text-white text-2xl"></i>
+                    </div>
+                    <h2 class="font-handwriting text-4xl md:text-5xl text-ink-soft">My Eternal Promise</h2>
+                </div>
+                
+                <div class="text-center mb-12">
+                    <p class="text-2xl md:text-3xl italic text-rose-dark mb-8 leading-relaxed">
+                        "To love you today, tomorrow, and in all the days that follow—this is my forever vow."
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-gradient-to-br from-rose-light to-white p-8 rounded-xl shadow-md border border-rose-dark/10">
+                        <h3 class="font-handwriting text-3xl text-ink-soft mb-6 text-center">My Vows to You</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <i class="fas fa-heart text-rose-dark mt-1 mr-3"></i>
+                                <span>To choose you, every single day, even when it's hard</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-heart text-rose-dark mt-1 mr-3"></i>
+                                <span>To be your shelter in every storm that comes our way</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-heart text-rose-dark mt-1 mr-3"></i>
+                                <span>To remember that your happiness is intertwined with my own</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-heart text-rose-dark mt-1 mr-3"></i>
+                                <span>To grow with you, learn with you, and build a lifetime of memories</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="flex flex-col items-center justify-center p-8">
+                        <div class="relative mb-8">
+                            <div class="w-64 h-64 rounded-full bg-gradient-to-tr from-rose-light via-white to-rose-dark/20 flex items-center justify-center shadow-lg border border-rose-dark/10">
+                                <div class="text-center">
+                                    <i class="fas fa-heart text-rose-dark text-6xl mb-4 animate-heartbeat"></i>
+                                    <p class="font-handwriting text-2xl text-ink-soft">Forever Yours</p>
+                                </div>
+                            </div>
+                            <div class="absolute -top-2 -right-2 w-12 h-12 rounded-full bg-gold-accent flex items-center justify-center shadow-lg">
+                                <i class="fas fa-star text-white"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-12 pt-8 border-t border-rose-light text-center">
+                    <p class="text-xl text-ink-soft">
+                        With all the love my heart can hold,
+                    </p>
+                    <p class="font-handwriting text-3xl text-rose-dark mt-4">
+                        Always and forever,
+                    </p>
+                    <div class="mt-6 inline-block">
+                        <div class="border border-rose-dark/20 rounded-lg p-4 inline-block">
+                            <p class="font-handwriting text-2xl text-ink-soft">Your Beloved</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <p class="text-lg mb-6 italic">
-              "The quality is exceptional. I've had my Cloth & Co. linen dress
-              for two seasons now and it still looks brand new."
-            </p>
-            <div class="flex items-center">
-              <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
-                <img
-                  src="https://randomuser.me/api/portraits/women/32.jpg"
-                  alt="Sarah M."
-                  class="w-full h-full object-cover"
-                />
-              </div>
-              <div>
-                <h4 class="font-semibold">Sarah M.</h4>
-                <p class="text-sm text-gray-600">Verified Customer</p>
-              </div>
+            
+            <!-- Final scroll hint -->
+            <div class="text-center mt-12 animate-pulse-gentle">
+                <p class="text-rose-dark mb-2">Our story continues with every beat of our hearts</p>
+                <i class="fas fa-heart text-rose-dark animate-heartbeat"></i>
             </div>
-          </div>
-
-          <div class="bg-white p-8 rounded-lg shadow-md">
-            <div class="flex items-center mb-4">
-              <div class="text-yellow-400">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-              <span class="ml-2 font-medium">5.0</span>
-            </div>
-            <p class="text-lg mb-6 italic">
-              "Finally, sustainable fashion that doesn't compromise on style.
-              The fit is perfect and the fabrics feel amazing."
-            </p>
-            <div class="flex items-center">
-              <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
-                <img
-                  src="https://randomuser.me/api/portraits/women/65.jpg"
-                  alt="Jessica T."
-                  class="w-full h-full object-cover"
-                />
-              </div>
-              <div>
-                <h4 class="font-semibold">Jessica T.</h4>
-                <p class="text-sm text-gray-600">Verified Customer</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="bg-white p-8 rounded-lg shadow-md">
-            <div class="flex items-center mb-4">
-              <div class="text-yellow-400">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-              </div>
-              <span class="ml-2 font-medium">4.5</span>
-            </div>
-            <p class="text-lg mb-6 italic">
-              "Their commitment to ethical production is what drew me in, but
-              the timeless designs are what keep me coming back."
-            </p>
-            <div class="flex items-center">
-              <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
-                <img
-                  src="https://randomuser.me/api/portraits/men/32.jpg"
-                  alt="David R."
-                  class="w-full h-full object-cover"
-                />
-              </div>
-              <div>
-                <h4 class="font-semibold">David R.</h4>
-                <p class="text-sm text-gray-600">Verified Customer</p>
-              </div>
-            </div>
-          </div>
         </div>
-
-        <!-- Instagram Feed -->
-        <div class="text-center mb-8">
-          <h3 class="text-2xl heading-font mb-4" style="color: var(--charcoal)">
-            Follow Us on Instagram
-          </h3>
-          <p class="text-lg mb-6" style="color: var(--charcoal)">
-            @clothandco #clothandcostyle
-          </p>
-        </div>
-
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div class="instagram-item rounded-lg overflow-hidden shadow-md">
-            <img
-              src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1376&q=80"
-              alt="Instagram post"
-              class="w-full h-64 object-cover"
-            />
-            <div class="instagram-overlay">
-              <i class="fab fa-instagram text-white text-3xl"></i>
-            </div>
-          </div>
-
-          <div class="instagram-item rounded-lg overflow-hidden shadow-md">
-            <img
-              src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
-              alt="Instagram post"
-              class="w-full h-64 object-cover"
-            />
-            <div class="instagram-overlay">
-              <i class="fab fa-instagram text-white text-3xl"></i>
-            </div>
-          </div>
-
-          <div class="instagram-item rounded-lg overflow-hidden shadow-md">
-            <img
-              src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-              alt="Instagram post"
-              class="w-full h-64 object-cover"
-            />
-            <div class="instagram-overlay">
-              <i class="fab fa-instagram text-white text-3xl"></i>
-            </div>
-          </div>
-
-          <div class="instagram-item rounded-lg overflow-hidden shadow-md">
-            <img
-              src="https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1462&q=80"
-              alt="Instagram post"
-              class="w-full h-64 object-cover"
-            />
-            <div class="instagram-overlay">
-              <i class="fab fa-instagram text-white text-3xl"></i>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
-
-    <!-- Newsletter Signup -->
-    <section class="py-16 px-4" style="background-color: var(--sage)">
-      <div class="container mx-auto max-w-4xl">
-        <div class="text-center text-white">
-          <h2 class="text-3xl md:text-4xl heading-font mb-4">
-            Join Our Community
-          </h2>
-          <p class="text-lg mb-8 max-w-2xl mx-auto">
-            Subscribe to our newsletter for exclusive offers, sustainable
-            fashion tips, and early access to new collections.
-          </p>
-
-          <form
-            id="newsletterForm"
-            class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto"
-          >
-            <input
-              type="email"
-              placeholder="Your email address"
-              class="flex-grow px-6 py-3 rounded-full focus:outline-none focus:ring-2 focus:ring-white text-gray-800"
-              required
-            />
-            <button
-              type="submit"
-              class="px-8 py-3 rounded-full font-medium"
-              style="background-color: var(--charcoal); color: var(--white)"
-            >
-              Subscribe
-            </button>
-          </form>
-
-          <p class="text-sm mt-4 opacity-90">
-            By subscribing, you agree to our Privacy Policy. You can unsubscribe
-            at any time.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer
-      class="py-12 px-4"
-      style="background-color: var(--charcoal); color: var(--white)"
-    >
-      <div class="container mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-          <!-- Column 1: Logo and description -->
-          <div>
-            <h3 class="text-2xl heading-font mb-4">Cloth & Co.</h3>
-            <p class="mb-6">
-              Sustainable fashion that doesn't compromise on style, quality, or
-              ethics.
-            </p>
-            <div class="flex space-x-4">
-              <a href="#"><i class="fab fa-instagram text-xl"></i></a>
-              <a href="#"><i class="fab fa-facebook text-xl"></i></a>
-              <a href="#"><i class="fab fa-pinterest text-xl"></i></a>
-              <a href="#"><i class="fab fa-tiktok text-xl"></i></a>
-            </div>
-          </div>
-
-          <!-- Column 2: Quick Links -->
-          <div>
-            <h4 class="text-lg font-semibold mb-6">Quick Links</h4>
-            <ul class="space-y-3">
-              <li><a href="#" class="hover:underline">Shop All</a></li>
-              <li><a href="#" class="hover:underline">New Arrivals</a></li>
-              <li><a href="#" class="hover:underline">Bestsellers</a></li>
-              <li><a href="#" class="hover:underline">Sale</a></li>
-              <li><a href="#" class="hover:underline">Gift Cards</a></li>
-            </ul>
-          </div>
-
-          <!-- Column 3: Support -->
-          <div>
-            <h4 class="text-lg font-semibold mb-6">Support</h4>
-            <ul class="space-y-3">
-              <li><a href="#" class="hover:underline">Contact Us</a></li>
-              <li><a href="#" class="hover:underline">FAQs</a></li>
-              <li>
-                <a href="#" class="hover:underline">Shipping & Returns</a>
-              </li>
-              <li><a href="#" class="hover:underline">Size Guide</a></li>
-              <li><a href="#" class="hover:underline">Privacy Policy</a></li>
-            </ul>
-          </div>
-
-          <!-- Column 4: Contact -->
-          <div>
-            <h4 class="text-lg font-semibold mb-6">Contact</h4>
-            <ul class="space-y-3">
-              <li class="flex items-start">
-                <i class="fas fa-map-marker-alt mr-3 mt-1"></i>
-                <span>123 Fashion Ave, Suite 100<br />New York, NY 10001</span>
-              </li>
-              <li class="flex items-center">
-                <i class="fas fa-phone mr-3"></i>
-                <span>(555) 123-4567</span>
-              </li>
-              <li class="flex items-center">
-                <i class="fas fa-envelope mr-3"></i>
-                <span>hello@clothandco.com</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div
-          class="pt-8 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center"
-        >
-          <p class="mb-4 md:mb-0">
-            &copy; 2023 Cloth & Co. All rights reserved.
-          </p>
-          <div class="flex space-x-6">
-            <i class="fab fa-cc-visa text-2xl"></i>
-            <i class="fab fa-cc-mastercard text-2xl"></i>
-            <i class="fab fa-cc-amex text-2xl"></i>
-            <i class="fab fa-cc-paypal text-2xl"></i>
-            <i class="fab fa-cc-apple-pay text-2xl"></i>
-          </div>
-        </div>
-      </div>
-    </footer>
 
     <script>
-      // Mobile menu functionality
-      const mobileMenuButton = document.getElementById("mobileMenuButton");
-      const closeMobileMenu = document.getElementById("closeMobileMenu");
-      const mobileMenu = document.getElementById("mobileMenu");
-
-      mobileMenuButton.addEventListener("click", () => {
-        mobileMenu.classList.add("open");
-      });
-
-      closeMobileMenu.addEventListener("click", () => {
-        mobileMenu.classList.remove("open");
-      });
-
-      // Close mobile menu when clicking outside
-      document.addEventListener("click", (event) => {
-        if (
-          !mobileMenu.contains(event.target) &&
-          !mobileMenuButton.contains(event.target)
-        ) {
-          mobileMenu.classList.remove("open");
-        }
-      });
-
-      // Newsletter form submission
-      const newsletterForm = document.getElementById("newsletterForm");
-      newsletterForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const email = newsletterForm.querySelector('input[type="email"]').value;
-
-        // In a real implementation, you would send this to a server
-        alert(
-          `Thank you for subscribing with ${email}! You'll receive our next newsletter.`
-        );
-        newsletterForm.reset();
-      });
-
-      // Product card interaction
-      const productCards = document.querySelectorAll(".product-card");
-      productCards.forEach((card) => {
-        card.addEventListener("mouseenter", () => {
-          card.style.transform = "translateY(-10px)";
+        // Create heart trail effect
+        document.addEventListener('mousemove', function(e) {
+            const heart = document.createElement('div');
+            heart.className = 'heart-trail';
+            heart.innerHTML = '<i class="fas fa-heart text-rose-dark"></i>';
+            document.getElementById('heart-trail-container').appendChild(heart);
+            
+            const x = e.clientX;
+            const y = e.clientY;
+            
+            heart.style.left = `${x - 10}px`;
+            heart.style.top = `${y - 10}px`;
+            
+            // Random size
+            const size = Math.random() * 0.8 + 0.5;
+            heart.style.fontSize = `${size}rem`;
+            
+            // Random rotation
+            const rotation = Math.random() * 360;
+            heart.style.transform = `rotate(${rotation}deg)`;
+            
+            // Animate heart
+            const animation = heart.animate([
+                { opacity: 0.8, transform: `rotate(${rotation}deg) scale(1)` },
+                { opacity: 0, transform: `rotate(${rotation + 180}deg) scale(0)` }
+            ], {
+                duration: Math.random() * 1000 + 1000,
+                easing: 'cubic-bezier(0.215, 0.610, 0.355, 1)'
+            });
+            
+            // Remove heart after animation
+            animation.onfinish = () => heart.remove();
         });
 
-        card.addEventListener("mouseleave", () => {
-          card.style.transform = "translateY(0)";
+        // Scroll-triggered animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.2
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach((section) => {
+            observer.observe(section);
         });
-      });
 
-      // Tab switching for New Arrivals/Bestsellers
-      const tabButtons = document.querySelectorAll(
-        'button[class*="px-6 py-2 rounded-full"]'
-      );
-      tabButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-          // Remove active class from all buttons
-          tabButtons.forEach((btn) => {
-            btn.classList.remove("active");
-            btn.style.backgroundColor = "";
-            btn.style.color = "";
-          });
-
-          // Add active class to clicked button
-          button.classList.add("active");
-          button.style.backgroundColor = "var(--sage)";
-          button.style.color = "var(--white)";
-
-          // In a real implementation, you would switch the product display here
+        // Gentle page load animation
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 1.5s ease-in-out';
+            
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 300);
         });
-      });
 
-      // Add animation on scroll
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
-      };
+        // Add a romantic message on click anywhere
+        const romanticMessages = [
+            "My heart beats for you",
+            "Every moment with you is precious",
+            "You are my always",
+            "I carry your heart with me",
+            "Love you more than yesterday",
+            "You are my favorite thought",
+            "Forever isn't long enough",
+            "My soul recognized yours"
+        ];
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("fade-in-up");
-          }
+        document.addEventListener('click', (e) => {
+            // Only create message if not clicking on interactive elements
+            if (!e.target.closest('button') && !e.target.closest('a')) {
+                const message = document.createElement('div');
+                message.className = 'fixed z-50 font-handwriting text-rose-dark pointer-events-none';
+                message.textContent = romanticMessages[Math.floor(Math.random() * romanticMessages.length)];
+                message.style.left = `${e.clientX}px`;
+                message.style.top = `${e.clientY}px`;
+                message.style.fontSize = '1.5rem';
+                message.style.opacity = '0';
+                document.body.appendChild(message);
+                
+                // Animate message
+                const animation = message.animate([
+                    { opacity: 0, transform: 'translateY(0) scale(0.5)' },
+                    { opacity: 1, transform: 'translateY(-20px) scale(1)' },
+                    { opacity: 0, transform: 'translateY(-40px) scale(0.5)' }
+                ], {
+                    duration: 2000,
+                    easing: 'cubic-bezier(0.215, 0.610, 0.355, 1)'
+                });
+                
+                // Remove after animation
+                animation.onfinish = () => message.remove();
+            }
         });
-      }, observerOptions);
-
-      // Observe elements for animation
-      document.querySelectorAll("section").forEach((section, index) => {
-        if (index > 0) {
-          // Skip first section (header)
-          observer.observe(section);
-        }
-      });
     </script>
-  </body>
+</body>
 </html>
